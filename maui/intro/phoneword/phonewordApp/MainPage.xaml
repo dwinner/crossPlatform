@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="phonewordApp.MainPage">
+
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Label Text="Enter a Phoneword"
+               FontSize="20"/>
+        <Entry x:Name="phoneNumberText"
+               Text="1-555-NETMAUI"/>
+        <Button x:Name="translateButton"
+                Text="Translate"
+                Clicked="OnTranslate"/>
+        <Button x:Name="callButton"
+                Text="Call"
+                IsEnabled="False"
+                Clicked="OnCall"/>
+    </VerticalStackLayout>
+
+</ContentPage>

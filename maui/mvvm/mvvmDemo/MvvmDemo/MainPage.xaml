@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MvvmDemo.Core;assembly=MvvmDemo.Core"
+             x:Class="MvvmDemo.MainPage"
+             x:DataType="vm:MainPageViewModel">
+    <Grid>
+        <Button Command="{Binding GetQuoteCommand}"
+                IsVisible="{Binding IsButtonVisible}"
+                Text="Get quote of the day" />
+        <Label HorizontalOptions="Center"
+               IsVisible="{Binding IsLabelVisible}"
+               Text="{Binding QuoteOfTheDay}"
+               TextColor="White"
+               VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

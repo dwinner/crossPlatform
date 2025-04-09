@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recipes.Mobile.Pages.SettingsPage"
+             xmlns:l10N="clr-namespace:Recipes.L10N;assembly=Recipes.L10N"
+             xmlns:mauiL10N="clr-namespace:Recipes.L10N.Maui;assembly=Recipes.L10N.Maui"
+             xmlns:vms="clr-namespace:Recipes.Client.Core.ViewModels;assembly=Recipes.Client.Core"
+             Title="{mauiL10N:Translate SettingsTitle}"
+             x:DataType="vms:SettingsViewModel">
+    <VerticalStackLayout>
+        <Label FontSize="14" HorizontalOptions="Center">
+            <Label.Text>
+                <MultiBinding StringFormat="{}{0}: {1}">
+                    <Binding Path="[Language]" Source="{x:Static l10N:LocalizedResourcesProvider.Instance}" />
+                    <Binding Path="CurrentLanguage" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
+        <Button Margin="0,5"
+                Background="White"
+                Command="{Binding SelectLanguageCommand}"
+                Text="{mauiL10N:Translate ChooseLanguage}"
+                TextColor="{StaticResource Primary}" />
+        <Button Margin="0.5"
+                Background="White"
+                Text="{mauiL10N:Translate About}"
+                TextColor="{StaticResource Primary}" />
+        <!-- TOREFACTOR: Such kind of information can be retrieved from metadata itself -->
+        <Label Margin="0,10"
+               HorizontalOptions="Center"
+               Text="Version: 1.0" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -52,3 +52,11 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# JetBrains Rider
+*.sln.iml
+.idea/
+
+# Visual paradigm
+*.bak_*
+*.lck

@@ -1,9 +1,9 @@
 namespace News.Views;
 
-public partial class ArticleItem : ContentView
+public partial class ArticleItem
 {
-	public ArticleItem()
-	{
-		InitializeComponent();
-	}
+   public ArticleItem()
+   {
+      InitializeComponent();
+   }
 }

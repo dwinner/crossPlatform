@@ -2,7 +2,7 @@
 
 public enum NewsScope
 {
-    Headlines,
-    Local,
-    Global
+   Headlines,
+   Local,
+   Global
 }

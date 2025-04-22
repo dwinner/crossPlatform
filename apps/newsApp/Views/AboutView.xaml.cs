@@ -1,9 +1,9 @@
 namespace News.Views;
 
-public partial class AboutView : ContentPage
+public partial class AboutView
 {
-	public AboutView()
-	{
-		InitializeComponent();
-	}
+   public AboutView()
+   {
+      InitializeComponent();
+   }
 }

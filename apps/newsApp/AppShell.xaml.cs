@@ -1,10 +1,12 @@
-﻿namespace News;
+﻿using News.Views;
 
-public partial class AppShell : Shell
+namespace News;
+
+public partial class AppShell
 {
-	public AppShell()
-	{
-		InitializeComponent();
-        Routing.RegisterRoute("articleview", typeof(Views.ArticleView));
-    }
+   public AppShell()
+   {
+      InitializeComponent();
+      Routing.RegisterRoute("articleview", typeof(ArticleView));
+   }
 }

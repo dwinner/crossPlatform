@@ -69,4 +69,9 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Resources\Images\" />
+	  <Folder Include="Resources\Raw\" />
+	</ItemGroup>
+
 </Project>

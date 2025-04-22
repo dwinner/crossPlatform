@@ -1,43 +1,48 @@
 ﻿using Microsoft.Extensions.Logging;
+using News.Services;
+using News.ViewModels;
+using News.Views;
 
 namespace News;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("FontAwesome.otf", "FontAwesome");
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            })
-            .RegisterAppTypes();
+   public static MauiApp CreateMauiApp()
+   {
+      var builder = MauiApp.CreateBuilder();
+      builder
+         .UseMauiApp<App>()
+         .ConfigureFonts(fonts =>
+         {
+            fonts.AddFont("FontAwesome.otf", "FontAwesome");
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+         })
+         .RegisterAppTypes();
 
 #if DEBUG
-        builder.Logging.AddDebug();
+      builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
-    }
+      return builder.Build();
+   }
 
-    public static MauiAppBuilder RegisterAppTypes(this MauiAppBuilder mauiAppBuilder)
-    {
-        // Services
-        mauiAppBuilder.Services.AddSingleton<Services.INewsService>((serviceProvider) => new Services.NewsService());
-        mauiAppBuilder.Services.AddSingleton<ViewModels.INavigate>((serviceProvider) => new Navigator());
+   public static MauiAppBuilder RegisterAppTypes(this MauiAppBuilder self)
+   {
+      var svc = self.Services;
 
-        // ViewModels
-        mauiAppBuilder.Services.AddTransient<ViewModels.HeadlinesViewModel>();
-        
-        //Views
-        mauiAppBuilder.Services.AddTransient<Views.AboutView>();
-        mauiAppBuilder.Services.AddTransient<Views.ArticleView>();
-        mauiAppBuilder.Services.AddTransient<Views.HeadlinesView>();
+      // Services
+      svc.AddSingleton<INewsService>(_ => new NewsService());
+      svc.AddSingleton<INavigate>(_ => new Navigator());
 
-        return mauiAppBuilder;
-    }
+      // ViewModels
+      svc.AddTransient<HeadlinesViewModel>();
+
+      // Views
+      svc.AddTransient<AboutView>();
+      svc.AddTransient<ArticleView>();
+      svc.AddTransient<HeadlinesView>();
+
+      return self;
+   }
 }

@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swiper.Core", "Swiper.Core\Swiper.Core.csproj", "{8217CF5F-237E-4A32-A7B1-B553A2F396F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swiper.Droid", "Swiper.Droid\Swiper.Droid.csproj", "{637A01D4-14A9-4719-92BF-96B87D52994B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swiper.iOS", "Swiper.iOS\Swiper.iOS.csproj", "{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swiper.Mac", "Swiper.Mac\Swiper.Mac.csproj", "{16965282-934F-45C2-8A85-8B7C64964037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swiper.WinUI", "Swiper.WinUI\Swiper.WinUI.csproj", "{B53916D2-D256-4FD4-9D86-96F62ACD543A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8217CF5F-237E-4A32-A7B1-B553A2F396F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8217CF5F-237E-4A32-A7B1-B553A2F396F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8217CF5F-237E-4A32-A7B1-B553A2F396F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8217CF5F-237E-4A32-A7B1-B553A2F396F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{637A01D4-14A9-4719-92BF-96B87D52994B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9E719C-8EE0-4F8C-A5DD-70D5D4CCEE6B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16965282-934F-45C2-8A85-8B7C64964037}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B53916D2-D256-4FD4-9D86-96F62ACD543A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B53916D2-D256-4FD4-9D86-96F62ACD543A}.Debug|Any CPU.Build.0 = Debug|x64
+		{B53916D2-D256-4FD4-9D86-96F62ACD543A}.Release|Any CPU.ActiveCfg = Release|x64
+		{B53916D2-D256-4FD4-9D86-96F62ACD543A}.Release|Any CPU.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5409454D-9646-4E35-A7FF-CDC4DE8D3BA0}
+	EndGlobalSection
+EndGlobal

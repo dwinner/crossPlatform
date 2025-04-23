@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Shell
+    x:Class="SwiperApp.Core.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:SwiperApp.Core"
+    FlyoutBehavior="Disabled"
+    Title="swiper">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate core:MainPage}"
+        Route="MainPage" />
+
+</Shell>

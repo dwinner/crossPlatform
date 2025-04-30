@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossPlatformCapabilities.FilePickerPage"
+             Title="FilePickerPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="PickButton" Clicked="PickButton_Clicked" 
+                    HorizontalOptions="Center" 
+                    Text="Pick an image"/>
+
+            <Label x:Name="ImageNameLabel" 
+                   HorizontalTextAlignment="Center" 
+                   HorizontalOptions="Center" Grid.Row="1"/>
+
+            <Image x:Name="PickedImage" Grid.Row="2"/>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

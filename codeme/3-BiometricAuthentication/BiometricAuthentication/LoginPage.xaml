@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiometricAuthentication.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout>
+        <Label Text="Enter your password:" Margin="10" />
+        <Entry x:Name="PasswordEntry" IsPassword="True" Margin="10"/>
+        <Button x:Name="PasswordLoginButton" Margin="10"
+        Text="Login with password" 
+        Clicked="PasswordLoginButton_Clicked" />
+        <Button x:Name="BiometricLoginButton" Margin="10"
+        Text="Login with biometric authentication" 
+        Clicked="BiometricLoginButton_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

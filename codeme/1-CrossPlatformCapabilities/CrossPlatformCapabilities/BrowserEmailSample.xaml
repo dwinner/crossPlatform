@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossPlatformCapabilities.BrowserEmailSample"
+             Title="BrowserEmailSample">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Button Text="Open Web page" 
+                    x:Name="BrowserButton" 
+                    Clicked="BrowserButton_Clicked"/>
+            <Button Text="Open email client" 
+                    x:Name="EmailButton" 
+                    Clicked="EmailButton_Clicked" 
+                    Margin="0,15,0,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

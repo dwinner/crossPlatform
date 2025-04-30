@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi", "BooksApi\BooksApi.csproj", "{939F22A8-E2BD-4B29-8028-7BDFD386C52C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithWebApi", "WorkingWithWebApi\WorkingWithWebApi.csproj", "{41635AEA-BB45-4BDF-940E-42B6FE2D281D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{939F22A8-E2BD-4B29-8028-7BDFD386C52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939F22A8-E2BD-4B29-8028-7BDFD386C52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939F22A8-E2BD-4B29-8028-7BDFD386C52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939F22A8-E2BD-4B29-8028-7BDFD386C52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41635AEA-BB45-4BDF-940E-42B6FE2D281D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0991E351-5B6D-47A9-956E-E791EC827994}
+	EndGlobalSection
+EndGlobal

@@ -22,12 +22,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Resources\Images\res\**" />
+	  <EmbeddedResource Remove="Resources\Images\res\**" />
+	  <MauiCss Remove="Resources\Images\res\**" />
+	  <MauiImage Remove="Resources\Images\res\**" />
+	  <MauiXaml Remove="Resources\Images\res\**" />
+	  <None Remove="Resources\Images\res\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Resources\Raw\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Controls\SwiperControl.xaml.cs">
+	    <DependentUpon>SwiperControl.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Controls\SwiperControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

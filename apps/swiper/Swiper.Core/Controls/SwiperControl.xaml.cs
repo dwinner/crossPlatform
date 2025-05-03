@@ -18,7 +18,8 @@ public partial class SwiperControl
 
       var picture = new Picture();
       descriptionLabel.Text = picture.Description;
-      image.Source = new UriImageSource { Uri = picture.Uri };
+      image.Source = new FileImageSource { File = picture.FileName };
+      //image.Source = new UriImageSource { Uri = picture.Uri };
 
       loadingLabel.SetBinding(IsVisibleProperty, nameof(Image.IsLoading));
       loadingLabel.BindingContext = image;

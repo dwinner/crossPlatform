@@ -8,8 +8,8 @@ internal class DescriptionGenerator
 
    public string Generate()
    {
-      var adj = _adjectives[_Random.Next(_adjectives.Count())];
-      var phrase = _other[_Random.Next(_other.Count())];
+      var adj = _adjectives[_Random.Next(_adjectives.Length)];
+      var phrase = _other[_Random.Next(_other.Length)];
       return $"A {adj} {phrase}";
    }
 }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="http://schemas.syncfusion.com/maui"
+             x:Class="WorkingWithDocuments.MainPage">
+    <Grid x:Name="pdfViewGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <syncfusion:SfPdfViewer x:Name="pdfViewerControl" />
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="openButton" Margin="10,2,0,2"
+                    Text="Open"
+                    Clicked="OpenButton_Clicked" />
+            <Button x:Name="shareButton"
+                    Text="Share" Margin="10,2,0,2"
+                    Clicked="ShareButton_Clicked" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

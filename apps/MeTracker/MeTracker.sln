@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeTracker", "MeTracker\MeTracker.csproj", "{ACCACB05-C74C-4DB4-A779-49D48ED6DF7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeTracker.Droid", "MeTracker.Droid\MeTracker.Droid.csproj", "{CF9885D1-D295-4A64-B273-2CAB17494D9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeTracker.iOS", "MeTracker.iOS\MeTracker.iOS.csproj", "{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeTracker.Mac", "MeTracker.Mac\MeTracker.Mac.csproj", "{7BF6DD00-18D8-4B77-A329-C29E67F5A203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeTracker.WinUI", "MeTracker.WinUI\MeTracker.WinUI.csproj", "{ED4F37A7-76C4-44A9-88FF-C1D99FA71C83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACCACB05-C74C-4DB4-A779-49D48ED6DF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCACB05-C74C-4DB4-A779-49D48ED6DF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCACB05-C74C-4DB4-A779-49D48ED6DF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCACB05-C74C-4DB4-A779-49D48ED6DF7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9885D1-D295-4A64-B273-2CAB17494D9E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8345DF5-D32B-4EB2-BBF2-BCD767ECCC0A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF6DD00-18D8-4B77-A329-C29E67F5A203}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ED4F37A7-76C4-44A9-88FF-C1D99FA71C83}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{ED4F37A7-76C4-44A9-88FF-C1D99FA71C83}.Debug|Any CPU.Build.0 = Debug|x64
+		{ED4F37A7-76C4-44A9-88FF-C1D99FA71C83}.Release|Any CPU.ActiveCfg = Release|x64
+		{ED4F37A7-76C4-44A9-88FF-C1D99FA71C83}.Release|Any CPU.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {385F82B6-1DCB-4606-B1EB-EA7650F9DCE1}
+	EndGlobalSection
+EndGlobal

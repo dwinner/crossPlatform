@@ -1,4 +1,5 @@
 using Foundation;
+using Gallery.Mac;
 
 namespace gallery.Mac;
 

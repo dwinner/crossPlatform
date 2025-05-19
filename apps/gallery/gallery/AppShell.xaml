@@ -1,15 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
-    x:Class="gallery.AppShell"
+    x:Class="Gallery.Core.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:gallery"
-    Shell.FlyoutBehavior="Disabled"
-    Title="gallery">
+    xmlns:views="clr-namespace:Gallery.Core.Views"
+    FlyoutBehavior="Flyout"
+    Title="Gallery">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate views:MainView}"
+        Route="MainView" />
+    <ShellContent
+        Title="Gallery"
+        ContentTemplate="{DataTemplate views:GalleryView}"
+        Route="Gallery" />
 
 </Shell>

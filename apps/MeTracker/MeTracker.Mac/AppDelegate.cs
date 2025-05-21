@@ -1,10 +1,9 @@
 using Foundation;
 
-namespace MeTracker.Mac
+namespace MeTracker.Mac;
+
+[Register(nameof(AppDelegate))]
+public class AppDelegate : MauiUIApplicationDelegate
 {
-    [Register(nameof(AppDelegate))]
-    public class AppDelegate : MauiUIApplicationDelegate
-    {
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-    }
+   protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 }

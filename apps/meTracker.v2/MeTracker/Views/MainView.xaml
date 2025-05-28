@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:MeTracker.Controls"
+             xmlns:vm="clr-namespace:MeTracker.ViewModels"
+             x:Class="MeTracker.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             Title="Tracking">
+    <ctrl:CustomMap x:Name="customMap" Points="{Binding Points}" />
+</ContentPage>

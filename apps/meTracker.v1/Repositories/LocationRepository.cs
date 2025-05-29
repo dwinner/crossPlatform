@@ -26,9 +26,7 @@ public class LocationRepository : ILocationRepository
             return;
         }
 
-        var databasePath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            "Locations.db");
+        var databasePath = Path.Combine(FileSystem.AppDataDirectory, "Locations.db");
 
         connection = new SQLiteAsyncConnection(databasePath);
         await connection.CreateTableAsync<Location>();

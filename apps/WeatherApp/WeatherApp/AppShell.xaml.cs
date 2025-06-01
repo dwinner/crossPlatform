@@ -1,10 +1,9 @@
-﻿namespace WeatherApp
+﻿namespace WeatherApp;
+
+public partial class AppShell
 {
-    public partial class AppShell : Shell
-    {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
-    }
+   public AppShell()
+   {
+      InitializeComponent();
+   }
 }

@@ -1,15 +1,14 @@
-﻿namespace WeatherApp.Droid
+﻿namespace WeatherApp.Droid;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
-    {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
+   public static MauiApp CreateMauiApp()
+   {
+      var builder = MauiApp.CreateBuilder();
 
-            builder
-                .UseSharedMauiApp();
+      builder
+         .UseSharedMauiApp();
 
-            return builder.Build();
-        }
-    }
+      return builder.Build();
+   }
 }

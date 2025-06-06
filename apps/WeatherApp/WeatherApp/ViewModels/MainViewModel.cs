@@ -29,49 +29,53 @@ public partial class MainViewModel : ViewModel
 
    public async Task LoadDataAsync()
    {
-      IsRefreshing = true;
-
-      var status = await AppPermissions.CheckAndRequestRequiredPermissionAsync();
-      if (status == PermissionStatus.Granted)
+      try
       {
-         var location = await Geolocation.GetLastKnownLocationAsync() ??
-                        await Geolocation.GetLocationAsync();
-         var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
-         var itemGroups = new List<ForecastGroup>();
-         foreach (var item in forecast.Items)
+         IsRefreshing = true;
+         var status = await AppPermissions.CheckAndRequestRequiredPermissionAsync().ConfigureAwait(true);
+         if (status == PermissionStatus.Granted)
          {
-            if (itemGroups.Count == 0)
+            var location = await Geolocation.GetLastKnownLocationAsync() ??
+                           await Geolocation.GetLocationAsync();
+            var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
+            var itemGroups = new List<ForecastGroup>();
+            foreach (var item in forecast.Items)
             {
-               itemGroups.Add(
-                  new ForecastGroup(new List<ForecastItem> { item })
-                  {
-                     Date = item.DateTime.Date
-                  }
-               );
+               if (itemGroups.Count == 0)
+               {
+                  itemGroups.Add(
+                     new ForecastGroup(new List<ForecastItem> { item })
+                     {
+                        Date = item.DateTime.Date
+                     }
+                  );
 
-               continue;
+                  continue;
+               }
+
+               var group = itemGroups.SingleOrDefault(x => x.Date == item.DateTime.Date);
+               if (group == null)
+               {
+                  itemGroups.Add(
+                     new ForecastGroup(new List<ForecastItem> { item })
+                     {
+                        Date = item.DateTime.Date
+                     }
+                  );
+
+                  continue;
+               }
+
+               group.Items.Add(item);
             }
 
-            var group = itemGroups.SingleOrDefault(x => x.Date == item.DateTime.Date);
-            if (group == null)
-            {
-               itemGroups.Add(
-                  new ForecastGroup(new List<ForecastItem> { item })
-                  {
-                     Date = item.DateTime.Date
-                  }
-               );
-
-               continue;
-            }
-
-            group.Items.Add(item);
+            Days = new ObservableCollection<ForecastGroup>(itemGroups);
+            City = forecast.City;
          }
-
-         Days = new ObservableCollection<ForecastGroup>(itemGroups);
-         City = forecast.City;
       }
-
-      IsRefreshing = false;
+      finally
+      {
+         IsRefreshing = false;
+      }
    }
 }

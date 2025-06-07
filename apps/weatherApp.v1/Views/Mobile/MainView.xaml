@@ -11,11 +11,15 @@
     <RefreshView Command="{Binding RefreshCommand}"
                  IsRefreshing="{Binding IsRefreshing}">
 
-        <CollectionView ItemsSource="{Binding Days}" IsGrouped="True" BackgroundColor="Transparent">
+        <CollectionView ItemsSource="{Binding Days}"
+                        IsGrouped="True"
+                        BackgroundColor="Transparent">
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate x:DataType="mdl:ForecastGroup">
                     <ContentView Padding="15,5" BackgroundColor="#9F5010">
-                        <Label FontAttributes="Bold" TextColor="White" Text="{Binding DateAsString}"
+                        <Label FontAttributes="Bold"
+                               TextColor="White"
+                               Text="{Binding DateAsString}"
                                VerticalOptions="Center" />
                     </ContentView>
                 </DataTemplate>
@@ -29,13 +33,22 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" FontAttributes="Bold" Text="{Binding TimeAsString}"
+                        <Label Grid.Column="0"
+                               FontAttributes="Bold"
+                               Text="{Binding TimeAsString}"
                                VerticalOptions="Center" />
-                        <Image Grid.Column="1" HeightRequest="50" WidthRequest="50" Source="{Binding Icon}"
-                               Aspect="AspectFit" VerticalOptions="Center" />
-                        <Label Grid.Column="2" Text="{Binding Temperature, StringFormat='{0}°C'}"
+                        <Image Grid.Column="1"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               Source="{Binding Icon}"
+                               Aspect="AspectFit"
                                VerticalOptions="Center" />
-                        <Label Grid.Column="3" Text="{Binding Description}" VerticalOptions="Center" />
+                        <Label Grid.Column="2"
+                               Text="{Binding Temperature, StringFormat='{0}°C'}"
+                               VerticalOptions="Center" />
+                        <Label Grid.Column="3"
+                               Text="{Binding Description}"
+                               VerticalOptions="Center" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

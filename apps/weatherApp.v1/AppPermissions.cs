@@ -18,7 +18,9 @@ internal class AppPermissions
             // Prompt the user to turn on in settings
             // On iOS once a permission has been denied it may not be requested again from the application
             await mainPage.DisplayAlert("Required App Permissions",
-               "Please enable all permissions in Settings for this App, it is useless without them.", "Ok");
+               "Please enable all permissions in Settings for this App, it is useless without them.",
+               "Ok"
+            );
             break;
       }
 
@@ -26,7 +28,9 @@ internal class AppPermissions
       {
          // Prompt the user with additional information as to why the permission is needed
          await mainPage.DisplayAlert("Required App Permissions",
-            "This is a location based app, without these permissions it is useless.", "Ok");
+            "This is a location based app, without these permissions it is useless.",
+            "Ok"
+         );
       }
 
       status = await MainThread.InvokeOnMainThreadAsync(Permissions.RequestAsync<AppPermission>);

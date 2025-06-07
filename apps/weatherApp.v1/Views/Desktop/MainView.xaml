@@ -18,11 +18,15 @@
             <Image.Source>
                 <UriImageSource
                     Uri="https://upload.wikimedia.org/wikipedia/commons/7/79/Solnedg%C3%A5ng_%C3%B6ver_Laholmsbukten_augusti_2011.jpg"
-                    CachingEnabled="true" CacheValidity="1" />
+                    CachingEnabled="true"
+                    CacheValidity="1" />
             </Image.Source>
         </Image>
         <ScrollView BackgroundColor="Transparent">
-            <FlexLayout BindableLayout.ItemsSource="{Binding Days}" Direction="Column" Wrap="NoWrap" Grow="0.0"
+            <FlexLayout BindableLayout.ItemsSource="{Binding Days}"
+                        Direction="Column"
+                        Wrap="NoWrap"
+                        Grow="0.0"
                         Shrink="0.0">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
@@ -42,23 +46,32 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <ContentView Padding="10" BackgroundColor="#9F5010">
-                                <Label Text="{Binding DateAsString}" TextColor="White" FontAttributes="Bold" />
+                                <Label Text="{Binding DateAsString}"
+                                       TextColor="White"
+                                       FontAttributes="Bold" />
                             </ContentView>
-                            <FlexLayout BindableLayout.ItemsSource="{Binding Items}" Wrap="Wrap" JustifyContent="Start"
-                                        AlignItems="Start" FlexLayout.Grow="1">
+                            <FlexLayout BindableLayout.ItemsSource="{Binding Items}"
+                                        Wrap="Wrap"
+                                        JustifyContent="Start"
+                                        AlignItems="Start"
+                                        FlexLayout.Grow="1">
                                 <FlexLayout.Behaviors>
                                     <behaviors:FlexLayoutBehavior />
                                 </FlexLayout.Behaviors>
-
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout Margin="10" Padding="20" WidthRequest="150"
                                                      BackgroundColor="#99FFFFFF"
                                                      x:DataType="mdl:ForecastItem">
-                                            <Label FontSize="16" FontAttributes="Bold" Text="{Binding TimeAsString}"
+                                            <Label FontSize="16"
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding TimeAsString}"
                                                    HorizontalOptions="Center" />
-                                            <Image WidthRequest="100" HeightRequest="100" Aspect="AspectFit"
-                                                   HorizontalOptions="Center" Source="{Binding Icon}">
+                                            <Image WidthRequest="100"
+                                                   HeightRequest="100"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="Center"
+                                                   Source="{Binding Icon}">
                                                 <VisualStateManager.VisualStateGroups>
                                                     <VisualStateGroup>
                                                         <VisualState Name="Portrait">
@@ -76,10 +89,13 @@
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
                                             </Image>
-                                            <Label FontSize="14" FontAttributes="Bold"
+                                            <Label FontSize="14"
+                                                   FontAttributes="Bold"
                                                    Text="{Binding Temperature, StringFormat='{0}° C'}"
                                                    HorizontalOptions="Center" />
-                                            <Label FontSize="14" FontAttributes="Bold" Text="{Binding Description}"
+                                            <Label FontSize="14"
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding Description}"
                                                    HorizontalOptions="Center" />
                                         </StackLayout>
                                     </DataTemplate>
@@ -90,8 +106,12 @@
                 </BindableLayout.ItemTemplate>
             </FlexLayout>
         </ScrollView>
-        <Border IsVisible="{Binding IsRefreshing}" BackgroundColor="#99FFFFFF" WidthRequest="100" HeightRequest="100"
-                VerticalOptions="Center" HorizontalOptions="Center">
+        <Border IsVisible="{Binding IsRefreshing}"
+                BackgroundColor="#99FFFFFF"
+                WidthRequest="100"
+                HeightRequest="100"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
             <ActivityIndicator Color="Black" IsRunning="True" />
         </Border>
     </Grid>

@@ -1,6 +1,6 @@
 ﻿namespace Weather.Models;
 
-public class ForecastGroup : List<ForecastItem>
+public partial class ForecastGroup : List<ForecastItem>
 {
    public ForecastGroup()
    {

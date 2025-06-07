@@ -2,7 +2,8 @@
 using Weather.Services;
 using Weather.ViewModels;
 using Weather.Views;
-using Weather.Views.Mobile;
+using MobileMainView = Weather.Views.Mobile.MainView;
+using DesktopMainView = Weather.Views.Desktop.MainView;
 
 namespace Weather;
 
@@ -23,15 +24,14 @@ public static class MauiProgram
       builder.Logging.AddDebug();
 #endif
       builder.Services.AddSingleton<IWeatherService, OpenWeatherMapWeatherService>();
-
       builder.Services.AddTransient<MainViewModel, MainViewModel>();
       if (DeviceInfo.Idiom == DeviceIdiom.Phone)
       {
-         builder.Services.AddTransient<IMainView, MainView>();
+         builder.Services.AddTransient<IMainView, MobileMainView>();
       }
       else
       {
-         builder.Services.AddTransient<IMainView, Views.Desktop.MainView>();
+         builder.Services.AddTransient<IMainView, DesktopMainView>();
       }
 
       return builder.Build();

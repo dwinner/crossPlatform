@@ -1,6 +1,6 @@
 ﻿namespace Weather.Behaviors;
 
-public class FlexLayoutBehavior : Behavior<FlexLayout>
+public partial class FlexLayoutBehavior : Behavior<FlexLayout>
 {
    private FlexLayout _view;
 
@@ -14,32 +14,29 @@ public class FlexLayoutBehavior : Behavior<FlexLayout>
       }
    }
 
-   private void SetState(VisualElement view, string state)
+   private static void SetState(VisualElement view, string state)
    {
       VisualStateManager.GoToState(view, state);
-      if (view is Layout layout)
+      if (view is not Layout layout)
       {
-         foreach (var child in layout.Children.OfType<VisualElement>())
-         {
-            SetState(child, state);
-         }
+         return;
+      }
+
+      foreach (var child in layout.Children.OfType<VisualElement>())
+      {
+         SetState(child, state);
       }
    }
 
-   private void UpdateState()
-   {
+   private void UpdateState() =>
       MainThread.BeginInvokeOnMainThread(() =>
       {
          var page = ActivePage;
-         if (page.Width > page.Height)
-         {
-            SetState(_view, "Landscape");
-            return;
-         }
-
-         SetState(_view, "Portrait");
+         var visualState = page.Width > page.Height
+            ? "Landscape"
+            : "Portrait";
+         SetState(_view, visualState);
       });
-   }
 
    protected override void OnAttachedTo(FlexLayout view)
    {

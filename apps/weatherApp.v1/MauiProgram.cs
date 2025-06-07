@@ -2,37 +2,38 @@
 using Weather.Services;
 using Weather.ViewModels;
 using Weather.Views;
+using Weather.Views.Mobile;
 
 namespace Weather;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+   public static MauiApp CreateMauiApp()
+   {
+      var builder = MauiApp.CreateBuilder();
+      builder
+         .UseMauiApp<App>()
+         .ConfigureFonts(fonts =>
+         {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+         });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+      builder.Logging.AddDebug();
 #endif
-		builder.Services.AddSingleton<IWeatherService, OpenWeatherMapWeatherService>();
+      builder.Services.AddSingleton<IWeatherService, OpenWeatherMapWeatherService>();
 
-		builder.Services.AddTransient<MainViewModel, MainViewModel>();
-		if (DeviceInfo.Idiom == DeviceIdiom.Phone)
-		{
-			builder.Services.AddTransient<IMainView, Views.Mobile.MainView>();
-		}
-		else
-		{
-			builder.Services.AddTransient<IMainView, Views.Desktop.MainView>();
-		}
+      builder.Services.AddTransient<MainViewModel, MainViewModel>();
+      if (DeviceInfo.Idiom == DeviceIdiom.Phone)
+      {
+         builder.Services.AddTransient<IMainView, MainView>();
+      }
+      else
+      {
+         builder.Services.AddTransient<IMainView, Views.Desktop.MainView>();
+      }
 
-        return builder.Build();
-	}
+      return builder.Build();
+   }
 }

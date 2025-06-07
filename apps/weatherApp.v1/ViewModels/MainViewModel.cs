@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Weather.Models;
@@ -9,73 +8,65 @@ namespace Weather.ViewModels;
 
 public partial class MainViewModel : ViewModel
 {
-    private readonly IWeatherService weatherService;
+   private readonly IWeatherService _weatherService;
 
-    [ObservableProperty]
-    private string city;
+   [ObservableProperty] private string _city;
 
-    [ObservableProperty]
-    private ObservableCollection<ForecastGroup> days;
+   [ObservableProperty] private ObservableCollection<ForecastGroup> _days;
 
-    [ObservableProperty]
-    private bool isRefreshing;
+   [ObservableProperty] private bool _isRefreshing;
 
-    [RelayCommand]
-    public async Task RefreshAsync()
-    {
-        await LoadDataAsync();
-    }
+   public MainViewModel(IWeatherService weatherService) => _weatherService = weatherService;
 
-    public MainViewModel(IWeatherService weatherService)
-    {
-        this.weatherService = weatherService;
-    }
+   [RelayCommand]
+   public async Task RefreshAsync()
+   {
+      await LoadDataAsync();
+   }
 
-    public async Task LoadDataAsync()
-    {
-        IsRefreshing = true;
+   public async Task LoadDataAsync()
+   {
+      IsRefreshing = true;
 
-        var status = await AppPermissions.CheckAndRequestRequiredPermissionAsync();
-        if (status == PermissionStatus.Granted)
-        {
-            var location = await Geolocation.GetLastKnownLocationAsync() ??
-                           await Geolocation.GetLocationAsync();
+      var status = await AppPermissions.CheckAndRequestRequiredPermissionAsync();
+      if (status == PermissionStatus.Granted)
+      {
+         var location = await Geolocation.GetLastKnownLocationAsync()
+                        ?? await Geolocation.GetLocationAsync();
 
-            var forecast = await weatherService.GetForecastAsync(location.Latitude, location.Longitude);
+         var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
 
-            var itemGroups = new List<ForecastGroup>();
-
-            foreach (var item in forecast.Items)
+         var itemGroups = new List<ForecastGroup>();
+         foreach (var item in forecast.Items)
+         {
+            if (!itemGroups.Any())
             {
-                if (!itemGroups.Any())
-                {
-                    itemGroups.Add(new ForecastGroup(new List<ForecastItem>() { item })
-                    {
-                        Date = item.DateTime.Date
-                    });
-                    continue;
-                }
+               itemGroups.Add(new ForecastGroup(new List<ForecastItem> { item })
+               {
+                  Date = item.DateTime.Date
+               });
 
-                var group = itemGroups.SingleOrDefault(x => x.Date == item.DateTime.Date);
-
-                    if (group == null)
-                {
-                    itemGroups.Add(new ForecastGroup(new List<ForecastItem>() { item })
-                    {
-                        Date = item.DateTime.Date
-                    });
-
-                    continue;
-                }
-
-                group.Items.Add(item);
+               continue;
             }
 
-            Days = new ObservableCollection<ForecastGroup>(itemGroups);
-            City = forecast.City;
-        }
+            var group = itemGroups.SingleOrDefault(x => x.Date == item.DateTime.Date);
+            if (group == null)
+            {
+               itemGroups.Add(new ForecastGroup(new List<ForecastItem> { item })
+               {
+                  Date = item.DateTime.Date
+               });
 
-        IsRefreshing = false;
-    }
+               continue;
+            }
 
+            group.Items.Add(item);
+         }
+
+         Days = new ObservableCollection<ForecastGroup>(itemGroups);
+         City = forecast.City;
+      }
+
+      IsRefreshing = false;
+   }
 }

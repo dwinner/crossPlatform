@@ -1,0 +1,18 @@
+﻿using c4_LocalDatabaseConnection.DataAccess;
+using SQLitePCL;
+
+namespace c4_LocalDatabaseConnection;
+
+public partial class App
+{
+   public App()
+   {
+      Batteries_V2.Init();
+      using var context = new CrmContext();
+      context.Database.EnsureCreated();
+
+      InitializeComponent();
+   }
+
+   protected override Window CreateWindow(IActivationState activationState) => new(new AppShell());
+}

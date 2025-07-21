@@ -1,0 +1,52 @@
+﻿using System.Collections.ObjectModel;
+using c5_AuthenticationClient.Model;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
+namespace c5_AuthenticationClient.ViewModels;
+
+public partial class UsersViewModel : ObservableObject
+{
+   [ObservableProperty] [NotifyCanExecuteChangedFor(nameof(DeleteUserCommand))]
+   private bool _allowDelete;
+
+   [ObservableProperty] private User _loggedInUser;
+
+   private readonly SessionService _sessionService = SessionService.Instance;
+
+   [ObservableProperty] private ObservableCollection<User> _users;
+
+   private readonly WebService _webService = WebService.Instance;
+
+   [RelayCommand]
+   private async Task Initialize()
+   {
+      Users = new ObservableCollection<User>(await _webService.GetUsersAsync());
+      AllowDelete = await _webService.CanDeleteUsersAsync();
+      LoggedInUser = await _webService.GetCurrentUserAsync();
+   }
+
+   [RelayCommand]
+   private async Task LogOut()
+   {
+      _sessionService.ClearTokenStorage();
+      _webService.ResetAuthHeader();
+      await Shell.Current.GoToAsync("..");
+   }
+
+   [RelayCommand(CanExecute = nameof(CanDeleteUser))]
+   private async Task DeleteUser(User user)
+   {
+      try
+      {
+         await _webService.DeleteUserAsync(user.Email);
+         Users.Remove(user);
+      }
+      catch (Exception ex)
+      {
+         await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+      }
+   }
+
+   private bool CanDeleteUser() => AllowDelete;
+}

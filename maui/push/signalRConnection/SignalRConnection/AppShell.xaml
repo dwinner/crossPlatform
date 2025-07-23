@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Shell
+    x:Class="SignalRConnection.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:signalRConnection="clr-namespace:SignalRConnection"
+    FlyoutBehavior="Disabled"
+    Title="c6_SignalRConnection">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate signalRConnection:MainPage}"
+        Route="MainPage" />
+
+</Shell>

@@ -1,0 +1,15 @@
+﻿namespace c7_CrossPlatformApi;
+
+public partial class MainPage
+{
+   public MainPage()
+   {
+      InitializeComponent();
+      label.Text = PlatformInfo.GetPlatform();
+   }
+}
+
+public partial class PlatformInfo
+{
+   public static partial string GetPlatform();
+}

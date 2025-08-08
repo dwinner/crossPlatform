@@ -5,33 +5,32 @@ using System.Linq;
 
 namespace SticksAndStones.Repository;
 
-public class GameDbContext : DbContext
+public class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)
 {
-    public GameDbContext(DbContextOptions<GameDbContext> options) : base(options) { }
+   public DbSet<Player> Players { get; set; }
 
-    public DbSet<Player> Players { get; set; }
-    public DbSet<Match> Matches { get; set; }
+   public DbSet<Match> Matches { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Player>()
-            .HasKey(p => p.Id);
+   protected override void OnModelCreating(ModelBuilder modelBuilder)
+   {
+      modelBuilder.Entity<Player>()
+         .HasKey(player => player.Id);
 
-        modelBuilder.Entity<Match>()
-            .HasKey(g => g.Id);
+      modelBuilder.Entity<Match>()
+         .HasKey(match => match.Id);
 
-        modelBuilder.Entity<Match>()
-        .Property(p => p.Sticks)
-        .HasConversion(
+      modelBuilder.Entity<Match>()
+         .Property(match => match.Sticks)
+         .HasConversion(
             toDb => string.Join(",", toDb),
-            fromDb => fromDb.Split(',', StringSplitOptions.None).Select(int.Parse).ToList() ?? new(new int[24]));
+            fromDb => fromDb.Split(',', StringSplitOptions.None).Select(int.Parse).ToList());
 
-        modelBuilder.Entity<Match>()
-        .Property(p => p.Stones)
-        .HasConversion(
+      modelBuilder.Entity<Match>()
+         .Property(match => match.Stones)
+         .HasConversion(
             toDb => string.Join(",", toDb),
-            fromDb => fromDb.Split(',', StringSplitOptions.None).Select(int.Parse).ToList() ?? new(new int[9]));
+            fromDb => fromDb.Split(',', StringSplitOptions.None).Select(int.Parse).ToList());
 
-        base.OnModelCreating(modelBuilder);
-    }
+      base.OnModelCreating(modelBuilder);
+   }
 }

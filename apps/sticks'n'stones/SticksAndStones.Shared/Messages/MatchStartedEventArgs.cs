@@ -3,4 +3,3 @@
 namespace SticksAndStones.Messages;
 
 public record struct MatchStartedEventArgs(Match Match);
-

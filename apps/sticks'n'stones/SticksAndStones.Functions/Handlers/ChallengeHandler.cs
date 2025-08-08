@@ -1,76 +1,85 @@
-﻿using SticksAndStones.Models;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using SticksAndStones.Models;
 
 namespace SticksAndStones.Handlers;
 
 public class ChallengeHandler : IDisposable
 {
-    private record struct ChallengeRecord(Guid Id, TaskCompletionSource<Challenge> ResponseTask, DateTime Created, Challenge Challenge);
+   private readonly TimeSpan ackThreshold;
+   private readonly ConcurrentDictionary<Guid, ChallengeRecord> handlers = new();
+   private readonly Timer timer;
 
-    private readonly TimeSpan ackThreshold;
-    private readonly Timer timer;
+   public ChallengeHandler() : this(
+      true,
+      TimeSpan.FromSeconds(30),
+      TimeSpan.FromSeconds(1))
+   {
+   }
 
-    private readonly ConcurrentDictionary<Guid, ChallengeRecord> handlers = new();
+   public ChallengeHandler(bool completeAcksOnTimeout, TimeSpan ackThreshold, TimeSpan ackInterval)
+   {
+      if (completeAcksOnTimeout)
+      {
+         timer = new Timer(_ => CheckAcks(), null, ackInterval, ackInterval);
+      }
 
-    public ChallengeHandler() : this(
-        completeAcksOnTimeout: true,
-        ackThreshold: TimeSpan.FromSeconds(30),
-        ackInterval: TimeSpan.FromSeconds(1))
-    {
-    }
+      this.ackThreshold = ackThreshold;
+   }
 
-    public ChallengeHandler(bool completeAcksOnTimeout, TimeSpan ackThreshold, TimeSpan ackInterval)
-    {
-        if (completeAcksOnTimeout)
-        {
-            timer = new Timer(_ => CheckAcks(), state: null, dueTime: ackInterval, period: ackInterval);
-        }
+   public void Dispose()
+   {
+      timer?.Dispose();
 
-        this.ackThreshold = ackThreshold;
-    }
+      foreach (var pair in handlers)
+      {
+         pair.Value.ResponseTask.TrySetCanceled();
+      }
 
-    public (Guid id, Task<Challenge> responseTask) CreateChallenge(Player challenger, Player opponent)
-    {
-        var id = Guid.NewGuid();
-        var tcs = new TaskCompletionSource<Challenge>(TaskCreationOptions.RunContinuationsAsynchronously);
-        handlers.TryAdd(id, new(id, tcs, DateTime.UtcNow, new(id, challenger, opponent, ChallengeResponse.None)));
-        return (id, tcs.Task);
-    }
+      GC.SuppressFinalize(this);
+   }
 
-    public Challenge Respond(Guid id, ChallengeResponse response)
-    {
-        if (handlers.TryRemove(id, out var res))
-        {
-            var challenge = res.Challenge;
-            challenge.Response = response;
-            res.ResponseTask.TrySetResult(challenge);
-            return challenge;
-        }
-        return new Challenge();
-    }
+   public (Guid id, Task<Challenge> responseTask) CreateChallenge(Player challenger, Player opponent)
+   {
+      var id = Guid.NewGuid();
+      var puppetTask = new TaskCompletionSource<Challenge>(TaskCreationOptions.RunContinuationsAsynchronously);
+      handlers.TryAdd(id,
+         new ChallengeRecord(id, puppetTask, DateTime.UtcNow,
+            new Challenge(id, challenger, opponent, ChallengeResponse.None)));
 
-    private void CheckAcks()
-    {
-        foreach (var pair in handlers)
-        {
-            var elapsed = DateTime.UtcNow - pair.Value.Created;
-            if (elapsed > ackThreshold)
-            {
-                pair.Value.ResponseTask.TrySetException(new TimeoutException("Response time out"));
-            }
-        }
-    }
+      return (id, puppetTask.Task);
+   }
 
-    public void Dispose()
-    {
-        timer?.Dispose();
+   public Challenge Respond(Guid id, ChallengeResponse response)
+   {
+      if (handlers.TryRemove(id, out var res))
+      {
+         var challenge = res.Challenge;
+         challenge.Response = response;
+         res.ResponseTask.TrySetResult(challenge);
+         return challenge;
+      }
 
-        foreach (var pair in handlers)
-        {
-            pair.Value.ResponseTask.TrySetCanceled();
-        }
-    }
+      return new Challenge();
+   }
+
+   private void CheckAcks()
+   {
+      foreach (var pair in handlers)
+      {
+         var elapsed = DateTime.UtcNow - pair.Value.Created;
+         if (elapsed > ackThreshold)
+         {
+            pair.Value.ResponseTask.TrySetException(new TimeoutException("Response time out"));
+         }
+      }
+   }
+
+   private record struct ChallengeRecord(
+      Guid Id,
+      TaskCompletionSource<Challenge> ResponseTask,
+      DateTime Created,
+      Challenge Challenge);
 }

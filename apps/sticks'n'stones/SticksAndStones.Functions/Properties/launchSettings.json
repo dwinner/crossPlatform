@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "SticksAndStones.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7024",
+      "launchBrowser": false,
+      "environmentVariables": {
+      }
+    }
+  }
+}

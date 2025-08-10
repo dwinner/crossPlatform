@@ -2,11 +2,11 @@ using SticksAndStones.ViewModels;
 
 namespace SticksAndStones.Views;
 
-public partial class LobbyView : ContentPage
+public partial class LobbyView
 {
-    public LobbyView(LobbyViewModel viewModel)
-    {
-        this.BindingContext = viewModel;
-        InitializeComponent();
-    }
+   public LobbyView(LobbyViewModel viewModel)
+   {
+      BindingContext = viewModel;
+      InitializeComponent();
+   }
 }

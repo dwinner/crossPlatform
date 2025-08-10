@@ -2,12 +2,11 @@ using SticksAndStones.ViewModels;
 
 namespace SticksAndStones.Views;
 
-public partial class ConnectView : ContentPage
+public partial class ConnectView
 {
-    public ConnectView(ConnectViewModel viewModel)
-    {
-        this.BindingContext = viewModel;
-
-        InitializeComponent();
-    }
+   public ConnectView(ConnectViewModel viewModel)
+   {
+      BindingContext = viewModel;
+      InitializeComponent();
+   }
 }

@@ -1,12 +1,10 @@
-﻿namespace SticksAndStones.App
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+﻿namespace SticksAndStones.App;
 
-            MainPage = new AppShell();
-        }
-    }
+public partial class App
+{
+   public App()
+   {
+      InitializeComponent();
+      MainPage = new AppShell();
+   }
 }

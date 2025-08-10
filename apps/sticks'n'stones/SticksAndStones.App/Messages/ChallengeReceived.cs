@@ -3,11 +3,7 @@ using SticksAndStones.Models;
 
 namespace SticksAndStones.Messages;
 
-public class ChallengeRecieved : ValueChangedMessage<Player>
+public class ChallengeReceived(Guid id, Player challenger) : ValueChangedMessage<Player>(challenger)
 {
-    public Guid Id { get; init; }
-    public ChallengeRecieved(Guid id, Player challenger) : base(challenger)
-    {
-        Id = id;
-    }
+   public Guid Id { get; init; } = id;
 }

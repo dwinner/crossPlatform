@@ -2,11 +2,11 @@ using SticksAndStones.ViewModels;
 
 namespace SticksAndStones.Views;
 
-public partial class MatchView : ContentPage
+public partial class MatchView
 {
-	public MatchView(MatchViewModel viewModel)
-	{
-		this.BindingContext = viewModel;
-		InitializeComponent();
-	}
+   public MatchView(MatchViewModel viewModel)
+   {
+      BindingContext = viewModel;
+      InitializeComponent();
+   }
 }

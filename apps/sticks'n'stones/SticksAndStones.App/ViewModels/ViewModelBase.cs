@@ -5,22 +5,19 @@ namespace SticksAndStones.ViewModels;
 
 public abstract partial class ViewModelBase : ObservableRecipient
 {
-    [ObservableProperty]
-    private bool canRefresh;
+   [ObservableProperty] private bool canRefresh;
 
-    [ObservableProperty]
-    private bool isRefreshing;
+   [ObservableProperty] private bool isRefreshing;
 
-    private bool CanExecuteRefresh() => CanRefresh && !IsRefreshing;
+   private bool CanExecuteRefresh() => CanRefresh && !IsRefreshing;
 
-    protected virtual Task RefreshInternal() => Task.CompletedTask;
+   protected virtual Task RefreshInternal() => Task.CompletedTask;
 
-    [RelayCommand(CanExecute = nameof(CanExecuteRefresh))]
-    public async Task Refresh()
-    {
-        IsRefreshing = true;
-        await RefreshInternal();
-        IsRefreshing = false;
-        return;
-    }
+   [RelayCommand(CanExecute = nameof(CanExecuteRefresh))]
+   public async Task Refresh()
+   {
+      IsRefreshing = true;
+      await RefreshInternal();
+      IsRefreshing = false;
+   }
 }

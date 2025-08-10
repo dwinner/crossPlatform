@@ -2,9 +2,4 @@
 
 namespace SticksAndStones.Messages;
 
-internal class ServiceError : ValueChangedMessage<AsyncError>
-{
-    public ServiceError(AsyncError error) : base(error)
-    {
-    }
-}
+internal class ServiceError(AsyncError error) : ValueChangedMessage<AsyncError>(error);

@@ -1,8 +1,6 @@
-﻿
-.keypad {
+﻿.keypad {
     width: 300px;
-    margin: auto;
-    margin-top: -1.1em;
+    margin: -1.1em auto auto;
 }
 
 .keypad-body {
@@ -29,29 +27,29 @@
     transition: all 0.2s ease-in-out;
 }
 
-    .keypad-button.operator {
-        color: #AEB3BA;
-        background: #404D5E;
-    }
+.keypad-button.operator {
+    color: #AEB3BA;
+    background: #404D5E;
+}
 
-    .keypad-button.command {
-        color: #D95D4E;
-        background: #404D5E;
-    }
+.keypad-button.command {
+    color: #D95D4E;
+    background: #404D5E;
+}
 
-    .keypad-button:hover {
-        background: #E0B612;
-    }
+.keypad-button:hover {
+    background: #E0B612;
+}
 
-    .keypad-button.command:hover,
-    .keypad-button.operator:hover {
-        background: #E0B612;
-        color: #fff;
-    }
+.keypad-button.command:hover,
+.keypad-button.operator:hover {
+    background: #E0B612;
+    color: #fff;
+}
 
-    .keypad-button.wide {
-        width: 50%;
-    }
+.keypad-button.wide {
+    width: 50%;
+}
 
 .keypad-screen {
     background: #3A4655;

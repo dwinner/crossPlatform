@@ -1,46 +1,46 @@
-﻿namespace Calculator
+﻿namespace Calculator;
+
+public partial class App
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+   public App()
+   {
+      InitializeComponent();
+   }
 
-        protected override void OnHandlerChanging(HandlerChangingEventArgs args)
-        {
-            base.OnHandlerChanging(args);
-            MainPage = args.NewHandler.MauiContext.Services.GetService<MainPage>();
-        }
+   protected override void OnHandlerChanging(HandlerChangingEventArgs args)
+   {
+      base.OnHandlerChanging(args);
+      MainPage = args.NewHandler.MauiContext.Services.GetService<MainPage>();
+   }
 
-        protected override Window CreateWindow(IActivationState activationState)
-        {
-            var window = base.CreateWindow(activationState);
-            if (OperatingSystem.IsWindows() || OperatingSystem.IsMacCatalyst())
-            {
-                window.Created += Window_Created;
-            }
-            return window;
-        }
+   protected override Window CreateWindow(IActivationState activationState)
+   {
+      var window = base.CreateWindow(activationState);
+      if (OperatingSystem.IsWindows() || OperatingSystem.IsMacCatalyst())
+      {
+         window.Created += OnWindowCreated;
+      }
 
-        private async void Window_Created(object sender, EventArgs e)
-        {
-            const int defaultWidth = 450;
-            const int defaultHeight = 800;
+      return window;
+   }
 
-            var window = (Window)sender;
-            window.Width = defaultWidth;
-            window.Height = defaultHeight;
-            window.X = -defaultWidth;
-            window.Y = -defaultHeight;
+   private async void OnWindowCreated(object sender, EventArgs e)
+   {
+      const int defaultWidth = 450;
+      const int defaultHeight = 800;
 
-            await window.Dispatcher.DispatchAsync(() => { });
+      var window = (Window)sender;
+      window.Width = defaultWidth;
+      window.Height = defaultHeight;
+      window.X = -defaultWidth;
+      window.Y = -defaultHeight;
 
-            var displayInfo = DeviceDisplay.Current.MainDisplayInfo;
-            window.X = (displayInfo.Width / displayInfo.Density - window.Width) / 2;
-            window.Y = (displayInfo.Height / displayInfo.Density - window.Height) / 2;
+      await window.Dispatcher.DispatchAsync(() => { });
 
-            window.Created -= Window_Created;
-        }
-    }
+      var displayInfo = DeviceDisplay.Current.MainDisplayInfo;
+      window.X = (displayInfo.Width / displayInfo.Density - window.Width) / 2;
+      window.Y = (displayInfo.Height / displayInfo.Density - window.Height) / 2;
+
+      window.Created -= OnWindowCreated;
+   }
 }

@@ -2,11 +2,11 @@
 
 namespace Calculator;
 
-public partial class MainPage : ContentPage
+public partial class MainPage
 {
-    public MainPage(MainPageViewModel vm)
-    {
-        InitializeComponent();
-        BindingContext = vm;
-    }
+   public MainPage(MainPageViewModel viewModel)
+   {
+      InitializeComponent();
+      BindingContext = viewModel;
+   }
 }

@@ -1,11 +1,12 @@
-﻿namespace HotdogOrNot;
+﻿using HotdogOrNot.Views;
 
-public partial class AppShell : Shell
+namespace HotdogOrNot;
+
+public partial class AppShell
 {
-	public AppShell()
-	{
-        Routing.RegisterRoute("Result", typeof(HotdogOrNot.Views.ResultView));
-
-        InitializeComponent();
-	}
+   public AppShell()
+   {
+      Routing.RegisterRoute("Result", typeof(ResultView));
+      InitializeComponent();
+   }
 }

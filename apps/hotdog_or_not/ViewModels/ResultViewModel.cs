@@ -1,47 +1,43 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using HotdogOrNot.Models;
 
 namespace HotdogOrNot.ViewModels;
 
 public partial class ResultViewModel : ObservableObject, IQueryAttributable
 {
-	[ObservableProperty]
-	private string title;
+   [ObservableProperty] private string _description;
 
-	[ObservableProperty]
-	private string description;
+   [ObservableProperty] private byte[] _photoBytes;
 
-	[ObservableProperty]
-	byte[] photoBytes;
+   [ObservableProperty] private string _title;
 
-	public ResultViewModel()
-	{
-	}
+   public void ApplyQueryAttributes(IDictionary<string, object> query)
+   {
+      var result = query["result"] as Result;
+      Debug.Assert(result != null);
 
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
-    {
-        Initialize(query["result"] as Result);
-    }
+      Initialize(result);
+   }
 
-    public void Initialize(Result result)
-    {
-        PhotoBytes = result.PhotoBytes;
+   public void Initialize(Result result)
+   {
+      PhotoBytes = result.PhotoBytes;
 
-        if (result.IsHotdog && result.Confidence > 0.9)
-        {
+      switch (result.IsHotdog)
+      {
+         case true when result.Confidence > 0.9:
             Title = "Hot dog";
             Description = "This is for sure a hot dog";
-        }
-        else if (result.IsHotdog)
-        {
+            break;
+         case true:
             Title = "Maybe";
             Description = "This is maybe a hot dog";
-        }
-        else
-        {
+            break;
+         default:
             Title = "Not a hot dog";
             Description = "This is not a hot dog";
-        }
-    }
+            break;
+      }
+   }
 }
-

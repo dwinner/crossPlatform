@@ -1,27 +1,30 @@
-﻿
-namespace HotdogOrNot.ImageClassifier;
+﻿namespace HotdogOrNot.ImageClassifier;
 
 internal sealed class ClassifierOutput
 {
-    public string TopResultLabel { get; private set; }
-    public float TopResultScore { get; private set; }
-    public IDictionary<string, float> LabelScores { get; private set; }
+   private ClassifierOutput()
+   {
+   }
 
-    public byte[] Image { get; private set; }
+   public string TopResultLabel { get; private set; }
 
-    ClassifierOutput() { }
+   public float TopResultScore { get; private set; }
 
-    public static ClassifierOutput Create(string topLabel, IDictionary<string, float> labelScores, byte[] image)
-    {
-        var topLabelValue = topLabel ?? throw new ArgumentException(nameof(topLabel));
-        var labelScoresValue = labelScores ?? throw new ArgumentException(nameof(labelScores));
+   public IDictionary<string, float> LabelScores { get; private set; }
 
-        return new ClassifierOutput
-        {
-            TopResultLabel = topLabelValue,
-            TopResultScore = labelScoresValue.First(i => i.Key == topLabelValue).Value,
-            LabelScores = labelScoresValue,
-            Image = image,
-        };
-    }
+   public byte[] Image { get; private set; }
+
+   public static ClassifierOutput Create(string topLabel, IDictionary<string, float> labelScores, byte[] image)
+   {
+      ArgumentNullException.ThrowIfNull(topLabel, nameof(topLabel));
+      ArgumentNullException.ThrowIfNull(labelScores, nameof(labelScores));
+
+      return new ClassifierOutput
+      {
+         TopResultLabel = topLabel,
+         TopResultScore = labelScores.First(i => i.Key == topLabel).Value,
+         LabelScores = labelScores,
+         Image = image
+      };
+   }
 }

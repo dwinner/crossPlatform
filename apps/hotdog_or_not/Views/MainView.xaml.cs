@@ -2,13 +2,13 @@
 
 namespace HotdogOrNot.Views;
 
-public partial class MainView : ContentPage
+public partial class MainView
 {
-	public MainView(MainViewModel viewModel)
-	{
-		InitializeComponent();
+   public MainView(MainViewModel viewModel)
+   {
+      InitializeComponent();
 
-        BindingContext = viewModel;
-		NavigationPage.SetBackButtonTitle(this, string.Empty);
-    }
+      BindingContext = viewModel;
+      NavigationPage.SetBackButtonTitle(this, string.Empty);
+   }
 }

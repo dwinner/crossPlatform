@@ -1,7 +1,6 @@
-﻿
-namespace HotdogOrNot.ImageClassifier;
+﻿namespace HotdogOrNot.ImageClassifier;
 
 internal interface IClassifier
 {
-    ClassifierOutput Classify(byte[] bytes);
+   ClassifierOutput Classify(byte[] bytes);
 }

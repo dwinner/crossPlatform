@@ -16,7 +16,9 @@ public class WidgetFactory
 
     private static IDictionary<string, Type> widgetNameRegistrations = new Dictionary<string, Type>();
 
-    public static void RegisterWidget<TWidgetView, TWidgetViewModel>(string displayName) where TWidgetView : IWidgetView where TWidgetViewModel : IWidgetViewModel
+    public static void RegisterWidget<TWidgetView, TWidgetViewModel>(string displayName)
+        where TWidgetView : IWidgetView
+        where TWidgetViewModel : IWidgetViewModel
     {
         widgetRegistrations.Add(typeof(TWidgetViewModel), typeof(TWidgetView));
         widgetNameRegistrations.Add(displayName, typeof(TWidgetViewModel));

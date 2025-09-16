@@ -1,0 +1,30 @@
+﻿namespace WidgetBoard.App.Behaviors;
+
+public sealed class RequiredStringValidationBehavior : Behavior<Entry>
+{
+   public Style? ValidStyle { get; set; }
+
+   public Style? InvalidStyle { get; set; }
+
+   protected override void OnAttachedTo(Entry bindable)
+   {
+      base.OnAttachedTo(bindable);
+      bindable.TextChanged += OnTextChanged;
+   }
+
+   protected override void OnDetachingFrom(Entry bindable)
+   {
+      base.OnDetachingFrom(bindable);
+      bindable.TextChanged -= OnTextChanged;
+   }
+
+   private void OnTextChanged(object? sender, TextChangedEventArgs e)
+   {
+      if (sender is Entry entry && InvalidStyle is not null && ValidStyle is not null)
+      {
+         entry.Style = string.IsNullOrWhiteSpace(e.NewTextValue)
+            ? InvalidStyle
+            : ValidStyle;
+      }
+   }
+}

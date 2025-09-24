@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CellBoutique.MainPage">
+
+    <CollectionView ItemsSource="{Binding Products}"
+                    Margin="10">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="20" /> <!-- Change to 40 for Spacing layout -->
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <!-- Border/Shadow -->
+                <Border Stroke="Black"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 10">
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="10,10"
+                                Radius="50"
+                                Opacity="0.6"/>
+                    </Border.Shadow>
+                    <HorizontalStackLayout Spacing="20"
+                                           Padding="10">
+                        <VerticalStackLayout WidthRequest="220"
+                                             Spacing="10">
+                            <Label Text="{Binding Title}"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}"
+                                   LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                        <Label Text="{Binding Price, StringFormat='{0:c}'}"
+                               FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                </Border>
+                
+                <!-- Spacing -->
+                <!--<HorizontalStackLayout Spacing="15"
+                                       Padding="10">
+                    <Label Text="{Binding Price, StringFormat='{0:c}'}"
+                           FontAttributes="Bold"/>
+                    
+                    <VerticalStackLayout WidthRequest="220"
+                                             Spacing="10">
+                        <Label Text="{Binding Title}"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding Description}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>-->
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

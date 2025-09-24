@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiStockTake.UI.Pages.ReportPage"
+             Title="ReportPage">
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Help">
+            <MenuFlyoutItem Text="About"
+                            Clicked="AboutMenuItem_Clicked"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    <Grid>
+        <ActivityIndicator HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsEnabled="True"
+                           IsRunning="True"
+                           IsVisible="{Binding IsLoading}"/>
+        <RefreshView IsRefreshing="{Binding IsLoading}"
+                     Command="{Binding RefreshCommand}">
+            <CollectionView HorizontalOptions="Center"
+                            Margin="30"
+                            ItemsSource="{Binding Inventory}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="{OnIdiom Desktop=10, Phone=30, Default=20}"
+                                       Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <Grid IsVisible="{OnIdiom Phone=False, Desktop=True}"
+                          ColumnDefinitions="2*, 2*, *, 2*, 2*">
+                        <Label Grid.Column="0"
+                               Text="Product"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Column="1"
+                               Text="Manufacturer"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Column="2"
+                               Text="Count"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Column="3"
+                               Text="Counted By"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Column="4"
+                               Text="Counted On"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeShape="RoundRectangle 10"
+                                Stroke="Transparent"
+                                BackgroundColor="{OnIdiom Phone={AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryDarkBackground}}, Default=Transparent}">
+                            <Grid ColumnDefinitions="{OnIdiom Phone='4*, *', Desktop='2*, 2*, *, 2*, 2*'}"
+                                  Margin="{OnPlatform Android=20, iOS=15, Default=0}">
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <Style TargetType="Label">
+                                            <Setter Property="FontSize" Value="{OnPlatform Default=24, iOS=16}"/>
+                                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"/>
+                                        </Style>
+
+                                    </ResourceDictionary>
+                                </Grid.Resources>
+                                <Label Grid.Column="0"
+                                       Text="{Binding ProductName}"/>
+                                <Label Grid.Column="1"
+                                       HorizontalTextAlignment="{OnIdiom Phone=Center}"
+                                       Text="{OnIdiom Phone={Binding Count}, Desktop={Binding ManufacturerName}}"/>
+                                <Label Grid.Column="2"
+                                       Text="{Binding Count}"
+                                       IsVisible="{OnIdiom Phone=False, Desktop=True}"/>
+                                <Label Grid.Column="3"
+                                       Text="{Binding CountedByName}"
+                                       IsVisible="{OnIdiom Phone=False, Desktop=True}"/>
+                                <Label Grid.Column="4"
+                                       Text="{Binding CountedAt}"
+                                       IsVisible="{OnIdiom Phone=False, Desktop=True}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding CountedAt}"
+                                                     Value="1/1/0001">
+                                            <Setter Property="Text"
+                                                    Value="No stock counted"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                    </Grid>
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Light={StaticResource SecondaryBackground}, Dark={StaticResource SecondaryDarkBackground}}"
+                                        Offset="-5,-5"
+                                        Radius="10"
+                                        Opacity="0.8"/>
+                            </Border.Shadow>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

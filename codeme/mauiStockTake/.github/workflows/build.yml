@@ -1,0 +1,133 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - chapter-complete
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  build-android-windows:
+
+    name: Build Android
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Decode keystore file
+        run: |
+          $keystorebase64 = "${{ secrets.ANDROID_KEYSTORE }}"
+          $keystore = [System.Convert]::FromBase64String($keystorebase64)
+          Set-Content "${{ github.workspace }}/mauistocktake.keystore" -Value $keystore -AsByteStream
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Build
+        run: dotnet publish src/Presentation/MauiStockTake.UI/MauiStockTake.UI.csproj -f:net7.0-android -c:Release /p:AndroidKeyStore=True /p:AndroidSigningKeyStore="${{ github.workspace }}/mauistocktake.keystore" /p:AndroidSigningKeyPass=${{ secrets.ANDROID_KEYPASSWORD }} /p:AndroidSigningKeyAlias=${{ secrets.ANDROID_KEYSTOREALIAS }} /p:AndroidSigningStorePass=${{ secrets.ANDROID_KEYSTOREPASSWORD }}
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mauistocktake-android-build
+          path: src/Presentation/MauiStockTake.UI/bin/Release/net7.0-android/*Signed.aab
+
+  build-ios-mac:
+
+    name: Build iOS
+    runs-on: self-hosted
+#    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Import Distribution Certificate
+        run: |
+          echo ${{ secrets.APPLE_CERT }} | base64 --decode > DistributionCertificate.p12
+          security import DistributionCertificate.p12 -k ~/Library/Keychains/login.keychain -P ${{ secrets.APPLE_CERT_PASSWORD }}
+
+      - name: Import Provisioning Profile
+        run: |
+          echo ${{ secrets.APPLE_PROFILE }} | base64 --decode > MauiStockTake_iOS_Distribution.mobileprovision
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp MauiStockTake_iOS_Distribution.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+
+    #  - name: Set XCode Version
+    #    if: runner.os == 'macOS'
+    #    shell: bash
+    #    run: |
+    #      sudo xcode-select -s "/Applications/Xcode_14.1.app"
+    #      echo "MD_APPLE_SDK_ROOT=/Applications/Xcode_14.1.app" >> $GITHUB_ENV
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Build
+        run: dotnet publish src/Presentation/MauiStockTake.UI/MauiStockTake.UI.csproj -v:diag -f:net7.0-ios -c:Release /p:ArchiveOnBuild=true /p:RuntimeIdentifier=ios-arm64 /p:CodesignKey="${{ secrets.APPLE_CERT_NAME }}" /p:CodesignProvision="MauiStockTake iOS Distribution"
+
+      - name: Upload iOS artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mauistocktake-ios-build
+          path: src/Presentation/MauiStockTake.UI/bin/Release/net7.0-ios/ios-arm64/publish//*.ipa
+
+
+  deploy-all:
+
+    name: Deploy builds to stores
+
+    runs-on: self-hosted
+
+    needs:
+      - build-android-windows
+      - build-ios-mac
+
+    steps:
+      - name: Download Android artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: mauistocktake-android-build
+
+      - name: Download iOS artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: mauistocktake-ios-build
+
+      - name: Get ipa filename
+        run: echo "IPA_FILENAME=$(ls -R *.ipa)" > $GITHUB_ENV
+
+      - name: Upload Singed AAB
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          packageName: com.mildredssurfshack.MauiStockTake
+          releaseFiles: ./*Signed.aab
+          track: internal
+          status: completed
+
+      - name: Upload app to TestFlight
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          app-path: ${{ env.IPA_FILENAME }}
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}

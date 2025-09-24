@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiStockTake.UI.Pages.InputPage"
+             xmlns:controls="clr-namespace:MauiStockTake.UI.Controls"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             Title="InputPage">
+    <Grid Padding="20"
+          RowDefinitions="*, 4*, 3*, 1*">
+        <!--NOTE: SecondaryBackground added for iOS and macOS due to issue
+                    ##11677 in the .NET MAUI repo
+        -->
+        <Border StrokeShape="RoundRectangle 5"
+                Stroke="{StaticResource Primary}"
+                BackgroundColor="Transparent"
+                StrokeThickness="{OnPlatform WinUI=1, Default=0}">
+            <SearchBar x:Name="ProductSearchBar"
+                       ios:SearchBar.SearchBarStyle="Minimal"
+                       Grid.Row="0"
+                       SearchCommand="{Binding SearchProductsCommand}"
+                       Text="{Binding SearchTerm}"
+                       Placeholder="Search for a product..."/>
+        </Border>
+                
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding SearchResults}"
+                        SelectedItem="{Binding SelectedProduct}"
+                        SelectionMode="Single"
+                        Margin="20,0">
+            
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10"
+                                   Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Style="{StaticResource ProductSelector}">
+                        <Label Text="{Binding Name}"
+                               TextColor="Black"
+                               FontSize="Large"/>
+                        <Label Text="{Binding ManufacturerName}"
+                               TextColor="Gray"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           IsRunning="True"
+                           IsVisible="{Binding IsLoading}"/>
+
+        <controls:MildredStepper Grid.Row="2"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Value="{Binding Count, Mode=TwoWay}">
+        <controls:MildredStepper.Triggers>
+                <DataTrigger TargetType="controls:MildredStepper"
+                             Binding="{Binding SelectedProduct, TargetNullValue=''}"
+                             Value="">
+                    <Setter Property="IsEnabled"
+                            Value="False" />
+                </DataTrigger>
+            </controls:MildredStepper.Triggers>
+        </controls:MildredStepper>
+
+        <Button Grid.Row="3"
+                Text="Add count"
+                Command="{Binding AddCountCommand}">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                             Binding="{Binding Count}"
+                             Value="0">
+                    <Setter Property="IsEnabled"
+                            Value="False"/>
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</ContentPage>

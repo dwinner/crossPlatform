@@ -1,14 +1,14 @@
 ﻿namespace WidgetBoard.App;
 
-public partial class App : Application
+public partial class App
 {
-   public App()
+   private readonly AppShell _appShell;
+
+   public App(AppShell appShell)
    {
+      _appShell = appShell;
       InitializeComponent();
    }
 
-   protected override Window CreateWindow(IActivationState? activationState)
-   {
-      return new Window(new AppShell());
-   }
+   protected override Window CreateWindow(IActivationState? activationState) => new(_appShell);
 }

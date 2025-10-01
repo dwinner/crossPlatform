@@ -1,9 +1,21 @@
-﻿namespace WidgetBoard.App;
+﻿using WidgetBoard.App.ViewModels;
 
-public partial class AppShell : Shell
+namespace WidgetBoard.App;
+
+public partial class AppShell
 {
-   public AppShell()
+   private readonly AppShellViewModel _viewModel;
+
+   public AppShell(AppShellViewModel viewModel)
    {
+      _viewModel = viewModel;
       InitializeComponent();
+      BindingContext = _viewModel;
+   }
+
+   protected override void OnAppearing()
+   {
+      base.OnAppearing();
+      _viewModel.LoadBoards();
    }
 }

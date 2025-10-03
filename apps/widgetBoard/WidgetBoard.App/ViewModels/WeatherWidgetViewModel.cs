@@ -13,11 +13,8 @@ public partial class WeatherWidgetViewModel : ViewModelBase, IWidgetViewModel
    private readonly IWeatherForecastService _weatherForecastService;
 
    [ObservableProperty] private string _iconUrl = string.Empty;
-
    [ObservableProperty] private State _state;
-
    [ObservableProperty] private double _temperature;
-
    [ObservableProperty] private string _weather = string.Empty;
 
    public WeatherWidgetViewModel(

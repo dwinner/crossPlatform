@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentView
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converters="clr-namespace:WidgetBoard.Converters"
-    xmlns:viewModels="clr-namespace:WidgetBoard.ViewModels"
-    x:Class="WidgetBoard.Views.WeatherWidgetView"
-    x:DataType="viewModels:WeatherWidgetViewModel">
-    
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WidgetBoard.App.Views.WeatherWidgetView"
+             xmlns:converters="clr-namespace:WidgetBoard.App.Converters"
+             xmlns:vm="clr-namespace:WidgetBoard.App.ViewModels"
+             x:DataType="vm:WeatherWidgetViewModel">
+
     <ContentView.Resources>
         <converters:IsEqualToStateConverter
-            x:Key="IsLoadingConverter"
+            x:Key="isLoadingConverter"
             State="Loading" />
-        
+
         <converters:IsEqualToStateConverter
-            x:Key="HasLoadedConverter"
+            x:Key="hasLoadedConverter"
             State="Loaded" />
 
         <converters:IsEqualToStateConverter
-            x:Key="HasErrorConverter"
+            x:Key="hasErrorConverter"
             State="Error" />
-        
+
         <converters:IsEqualToStateConverter
-            x:Key="HasPermissionErrorConverter"
+            x:Key="hasPermissionErrorConverter"
             State="PermissionError" />
     </ContentView.Resources>
-    
+
     <VerticalStackLayout>
         <Label
             Text="Today"
@@ -32,19 +32,19 @@
             VerticalOptions="Center"
             HorizontalOptions="Start"
             TextTransform="Uppercase" />
-        
+
         <!-- Loading -->
         <VerticalStackLayout
-            IsVisible="{Binding State, Converter={StaticResource IsLoadingConverter}}">
+            IsVisible="{Binding State, Converter={StaticResource isLoadingConverter}}">
             <ActivityIndicator
-                IsRunning="{Binding State, Converter={StaticResource IsLoadingConverter}}" />
+                IsRunning="{Binding State, Converter={StaticResource isLoadingConverter}}" />
             <Label
                 Text="Loading weather data" />
         </VerticalStackLayout>
-        
+
         <!-- Loaded -->
         <VerticalStackLayout
-            IsVisible="{Binding State, Converter={StaticResource HasLoadedConverter}}">
+            IsVisible="{Binding State, Converter={StaticResource hasLoadedConverter}}">
             <Label
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
@@ -52,7 +52,7 @@
                     <FormattedString>
                         <Span
                             Text="{Binding Temperature, StringFormat='{0:F1}'}"
-                            FontSize="60"/>
+                            FontSize="60" />
                         <Span
                             Text="°C" />
                     </FormattedString>
@@ -66,12 +66,12 @@
             <Image
                 Source="{Binding IconUrl}"
                 WidthRequest="100"
-                HeightRequest="100"/>
+                HeightRequest="100" />
         </VerticalStackLayout>
 
         <!-- Error -->
         <VerticalStackLayout
-            IsVisible="{Binding State, Converter={StaticResource HasErrorConverter}}">
+            IsVisible="{Binding State, Converter={StaticResource hasErrorConverter}}">
             <Label
                 Text="Unable to load weather data" />
             <Button
@@ -81,7 +81,7 @@
 
         <!-- PermissionError -->
         <VerticalStackLayout
-            IsVisible="{Binding State, Converter={StaticResource HasPermissionErrorConverter}}">
+            IsVisible="{Binding State, Converter={StaticResource hasPermissionErrorConverter}}">
             <Label
                 Text="Unable to retrieve location data" />
             <Button
@@ -89,4 +89,5 @@
                 Command="{Binding LoadWeatherCommand}" />
         </VerticalStackLayout>
     </VerticalStackLayout>
+
 </ContentView>

@@ -67,7 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages\" />
+      <Folder Include="Resources\Images\" />
       <Folder Include="Resources\Raw\" />
     </ItemGroup>
 

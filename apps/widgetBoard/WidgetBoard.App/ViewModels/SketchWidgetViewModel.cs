@@ -2,7 +2,7 @@
 
 public class SketchWidgetViewModel : IWidgetViewModel
 {
-   private const string DisplayName = "Sketch";
+   internal const string DisplayName = "Sketch";
 
    public int Position { get; set; }
 

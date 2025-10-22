@@ -4,6 +4,8 @@ namespace WidgetBoard.App.ViewModels;
 
 public partial class ClockWidgetViewModel : ViewModelBase, IWidgetViewModel
 {
+   internal const string DisplayName = "Clock";
+
    private readonly Scheduler _scheduler = new();
 
    [ObservableProperty] private DateOnly _date;

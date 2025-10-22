@@ -1,4 +1,5 @@
-﻿using WidgetBoard.App.Models;
+﻿using System.Collections.Generic;
+using WidgetBoard.App.Models;
 
 namespace WidgetBoard.App.Data;
 

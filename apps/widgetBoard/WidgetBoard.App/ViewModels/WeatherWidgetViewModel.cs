@@ -7,7 +7,7 @@ namespace WidgetBoard.App.ViewModels;
 
 public partial class WeatherWidgetViewModel : ViewModelBase, IWidgetViewModel
 {
-   private const string DisplayName = "Weather";
+   internal const string DisplayName = "Weather";
    private readonly ILocationService _locationService;
    private readonly ISecureStorage _secureStorage;
    private readonly IWeatherForecastService _weatherForecastService;

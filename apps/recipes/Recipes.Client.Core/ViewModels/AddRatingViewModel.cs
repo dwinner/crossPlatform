@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Recipes.Client.Core.Features.Recipes;
@@ -138,9 +139,7 @@ public class AddRatingViewModel : ObservableValidator,
    {
       Errors.Clear();
       GetErrors().ToList().ForEach(Errors.Add);
-#if DEBUG
-      Errors.ToList().ForEach(validationResult => Console.WriteLine(validationResult.ErrorMessage));
-#endif
+      Errors.ToList().ForEach(validationResult => Debug.WriteLine(validationResult.ErrorMessage));
       SubmitCommand.NotifyCanExecuteChanged();
    }
 

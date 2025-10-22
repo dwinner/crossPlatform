@@ -10,5 +10,13 @@ public partial class App
       InitializeComponent();
    }
 
-   protected override Window CreateWindow(IActivationState? activationState) => new(_appShell);
+   protected override Window CreateWindow(IActivationState? activationState)
+   {
+      if (Current != null)
+      {
+         Current.UserAppTheme = AppTheme.Dark;
+      }
+
+      return new Window(_appShell);
+   }
 }

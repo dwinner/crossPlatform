@@ -1,14 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http.Resilience;
+﻿using Microsoft.Extensions.Http.Resilience;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Accessibility;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Devices.Sensors;
-using Microsoft.Maui.Hosting;
-using Microsoft.Maui.Storage;
 using Polly;
 using WidgetBoard.App.Communication;
 using WidgetBoard.App.Data;
@@ -94,21 +85,21 @@ public static class MauiProgram
    }
 
    private static void AddPage<
-      [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
+      //[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
       TPage,
-      [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
+      //[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
       TViewModel>(
       IServiceCollection services,
       string route)
       where TPage : Page
       where TViewModel : ViewModelBase
    {
-      services
-         .AddTransient(typeof(TPage))
-         .AddTransient(typeof(TViewModel));
       /*services
+         .AddTransient(typeof(TPage))
+         .AddTransient(typeof(TViewModel));*/
+      services
          .AddTransient<TPage>()
-         .AddTransient<TViewModel>();*/
+         .AddTransient<TViewModel>();
       Routing.RegisterRoute(route, typeof(TPage));
    }
 }

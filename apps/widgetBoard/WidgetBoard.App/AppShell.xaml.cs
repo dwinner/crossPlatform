@@ -11,6 +11,7 @@ public partial class AppShell
       _viewModel = viewModel;
       InitializeComponent();
       BindingContext = _viewModel;
+      
    }
 
    protected override void OnAppearing()

@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.App", "WidgetBoard.App\WidgetBoard.App.csproj", "{03DA9861-C680-4C1D-B943-AF2B3AF4ECAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.Tests", "WidgetBoard.Tests\WidgetBoard.Tests.csproj", "{EF04DDEB-9C64-4E54-8E65-9FC9C1CB1C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.DeviceTests", "WidgetBoard.DeviceTests\WidgetBoard.DeviceTests.csproj", "{72AE0371-69E8-41CF-869B-3F94E771A9A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{03DA9861-C680-4C1D-B943-AF2B3AF4ECAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DA9861-C680-4C1D-B943-AF2B3AF4ECAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03DA9861-C680-4C1D-B943-AF2B3AF4ECAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF04DDEB-9C64-4E54-8E65-9FC9C1CB1C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF04DDEB-9C64-4E54-8E65-9FC9C1CB1C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF04DDEB-9C64-4E54-8E65-9FC9C1CB1C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF04DDEB-9C64-4E54-8E65-9FC9C1CB1C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

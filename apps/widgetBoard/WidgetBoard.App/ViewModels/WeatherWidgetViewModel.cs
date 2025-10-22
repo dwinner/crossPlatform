@@ -33,7 +33,7 @@ public partial class WeatherWidgetViewModel : ViewModelBase, IWidgetViewModel
    public string Type => DisplayName;
 
    [RelayCommand]
-   private async Task LoadWeather()
+   public async Task LoadWeather()
    {
       var apiKey = await _secureStorage.GetAsync("OpenWeatherApiToken");
 

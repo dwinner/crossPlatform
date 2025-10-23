@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.Tests", "Widget
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.DeviceTests", "WidgetBoard.DeviceTests\WidgetBoard.DeviceTests.csproj", "{72AE0371-69E8-41CF-869B-3F94E771A9A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.SnapshotTests", "WidgetBoard.SnapshotTests\WidgetBoard.SnapshotTests.csproj", "{7561A681-60B5-4727-8BED-A7E1A8FD40CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetBoard.AutomationTests", "WidgetBoard.AutomationTests\WidgetBoard.AutomationTests.csproj", "{7E263A4F-AE7B-4267-A777-78E621CE1A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72AE0371-69E8-41CF-869B-3F94E771A9A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7561A681-60B5-4727-8BED-A7E1A8FD40CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7561A681-60B5-4727-8BED-A7E1A8FD40CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7561A681-60B5-4727-8BED-A7E1A8FD40CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7561A681-60B5-4727-8BED-A7E1A8FD40CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E263A4F-AE7B-4267-A777-78E621CE1A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E263A4F-AE7B-4267-A777-78E621CE1A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E263A4F-AE7B-4267-A777-78E621CE1A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E263A4F-AE7B-4267-A777-78E621CE1A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,11 @@
+﻿{
+  Type: Weather,
+  IconUrl: ,
+  State: PermissionError,
+  Weather: ,
+  LoadWeatherCommand: {
+    CanBeCanceled: false,
+    IsCancellationRequested: false,
+    IsRunning: false
+  }
+}

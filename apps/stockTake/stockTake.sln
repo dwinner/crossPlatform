@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{9A6A1F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTake.Shared", "src\common\StockTake.Shared\StockTake.Shared.csproj", "{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{283726C2-8F7D-41E6-B735-977E5431B7B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTake.Domain", "src\core\StockTake.Domain\StockTake.Domain.csproj", "{10BC0B79-94B2-4980-BAE6-26379E92DE91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,11 +18,17 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9A6A1F83-5A41-4732-8BBD-D0D747DE94A0} = {3D92878E-143B-4766-BDCF-773CBA43F176}
 		{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87} = {9A6A1F83-5A41-4732-8BBD-D0D747DE94A0}
+		{283726C2-8F7D-41E6-B735-977E5431B7B7} = {3D92878E-143B-4766-BDCF-773CBA43F176}
+		{10BC0B79-94B2-4980-BAE6-26379E92DE91} = {283726C2-8F7D-41E6-B735-977E5431B7B7}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C877E36-C0C6-49A6-8CFE-B39FEFF1BF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BC0B79-94B2-4980-BAE6-26379E92DE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BC0B79-94B2-4980-BAE6-26379E92DE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BC0B79-94B2-4980-BAE6-26379E92DE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BC0B79-94B2-4980-BAE6-26379E92DE91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

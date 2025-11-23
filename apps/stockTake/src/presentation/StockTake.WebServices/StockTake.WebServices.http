@@ -1,0 +1,6 @@
+@StockTake.WebServices_HostAddress = http://localhost:5080
+
+GET {{StockTake.WebServices_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

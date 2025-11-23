@@ -1,0 +1,2 @@
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "StockTake.Mobile.UI")]
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "StockTake.Mobile.UI.Pages")]

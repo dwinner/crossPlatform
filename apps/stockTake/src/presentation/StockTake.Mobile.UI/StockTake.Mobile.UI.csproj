@@ -21,10 +21,15 @@
         <Nullable>enable</Nullable>
 
         <!-- Display name -->
-        <ApplicationTitle>StockTake.Mobile.UI</ApplicationTitle>
+        <ApplicationTitle>StockTake</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.stocktake.mobile.ui</ApplicationId>
+        <!--
+        <ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">com.mildredssurfshack.mauistocktake</ApplicationId>
+        <ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">com.mildredssurfshack.MauiStockTake</ApplicationId>
+        <ApplicationIdGuid>F31A0539-B7DB-4874-94A9-489AA23BDF47</ApplicationIdGuid>
+        -->
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -39,6 +44,31 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+        <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+        <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+        <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+        <GenerateTestArtifacts>True</GenerateTestArtifacts>
+        <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+        <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+        <AndroidKeyStore>False</AndroidKeyStore>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
+        <CodesignKey>Apple Development: No name (PQ245RJZ53)</CodesignKey>
+        <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
+        <CreatePackage>false</CreatePackage>
+        <CodesignProvision>Automatic</CodesignProvision>
+        <CodesignKey>iPhone Developer</CodesignKey>
     </PropertyGroup>
 
     <ItemGroup>
@@ -46,11 +76,10 @@
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128"/>
+        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="256,256"/>
 
         <!-- Images -->
         <MauiImage Include="Resources\Images\*"/>
-        <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
 
         <!-- Custom Fonts -->
         <MauiFont Include="Resources\Fonts\*"/>
@@ -60,8 +89,54 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Remove="Resources\Images\icon_input.svg"/>
+        <None Remove="Resources\Images\icon_login.svg"/>
+        <None Remove="Resources\Images\icon_logout.svg"/>
+        <None Remove="Resources\Images\icon_palette.svg"/>
+        <None Remove="Resources\Images\icon_report.svg"/>
+        <None Remove="Resources\Images\surfshack_logo.jpeg"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Duende.IdentityModel.OidcClient" Version="6.0.1"/>
+        <PackageReference Include="Goldie.MauiPlugins.PageResolver" Version="2.5.4"/>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\StockTake.Client\StockTake.Client.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net9.0-windows10.0.19041.0'">
+        <PackageReference Include="WinUIEx" Version="2.9.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <MauiXaml Update="Controls\MildredSearchBar.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Controls\MildredStepper.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\AboutPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\InputPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\LoginPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\ProductPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Pages\ReportPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="Resources\Themes\DefaultTheme.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
     </ItemGroup>
 
 </Project>

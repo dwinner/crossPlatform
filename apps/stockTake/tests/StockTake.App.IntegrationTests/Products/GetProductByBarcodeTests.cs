@@ -1,9 +1,8 @@
 ﻿using FluentAssertions;
-using MauiStockTake.Application.Common.Exceptions;
-using MauiStockTake.Application.Products.GetProduct;
-using NUnit.Framework;
+using StockTake.App.Common.Exceptions;
+using StockTake.App.Products.GetProduct;
 
-namespace MauiStockTake.Application.IntegrationTests.Products;
+namespace StockTake.App.IntegrationTests.Products;
 
 using static Testing;
 

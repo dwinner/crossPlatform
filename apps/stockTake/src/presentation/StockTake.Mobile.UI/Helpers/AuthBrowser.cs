@@ -8,7 +8,8 @@ public class AuthBrowser : Duende.IdentityModel.OidcClient.Browser.IBrowser
    {
 #if WINDOWS
         var authResult =
- await WinUIEx.WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(Constants.RedirectUri));
+ await /*WinUIEx.*/
+    WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(Constants.RedirectUri));
 
         string code = authResult?.Properties["code"];
         string scope = authResult?.Properties["scope"];

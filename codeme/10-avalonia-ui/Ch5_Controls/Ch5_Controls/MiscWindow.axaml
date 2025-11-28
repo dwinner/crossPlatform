@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch5_Controls.MiscWindow"
+        Title="MiscWindow">
+
+	<!--<Expander Header="Expand for full view">
+		<StackPanel>
+			<TextBlock Text="You have expanded the view to see this image:"/>
+			<Image Width="200" Source="avares://Ch5_Controls/Assets/xamarin-forms-succinctly.png"
+				   Stretch="Fill"/>
+		</StackPanel>
+	</Expander>-->
+	<Grid>
+		<ProgressBar Minimum="0" Maximum="100" Foreground="LightGray"
+					 Value="70" ShowProgressText="True"/>
+	</Grid>
+</Window>

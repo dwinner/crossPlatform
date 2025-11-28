@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch9_Graphics_Animations_Brushes.AnimationsWindow"
+        Title="AnimationsWindow">
+	<Window.Styles>
+		<Style Selector="Ellipse.blue">
+			<Setter Property="Height" Value="100"/>
+			<Setter Property="Width" Value="100"/>
+			<Setter Property="Fill" Value="Blue"/>
+			<Style.Animations>
+				<Animation Duration="0:0:15">
+					<KeyFrame Cue="0%">
+						<Setter Property="Opacity" Value="0.0"/>
+						<Setter Property="Height" Value="0"/>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Opacity" Value="1.0"/>
+						<Setter Property="Height" Value="100"/>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="TextBlock.red">
+			<Setter Property="Foreground" Value="Red"/>
+			<Setter Property="Transitions">
+				<Transitions>
+					<ThicknessTransition Property="Margin" Duration="0:0:2"/>
+				</Transitions>
+			</Setter>
+			<Style.Animations>
+				<Animation Duration="0:0:15">
+					<KeyFrame Cue="0%">
+						<Setter Property="RotateTransform.Angle" Value="0"/>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="RotateTransform.Angle" Value="270"/>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+	</Window.Styles>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Ellipse Classes="blue"/>
+		<TextBlock Text="Animated text" FontSize="14" Classes="red" Grid.Row="1" />
+	</Grid>
+</Window>

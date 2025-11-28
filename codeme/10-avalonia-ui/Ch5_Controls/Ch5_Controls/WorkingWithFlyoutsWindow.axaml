@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch5_Controls.WorkingWithFlyoutsWindow"
+        Title="WorkingWithFlyoutsWindow">
+
+	<StackPanel>
+		<Button Margin="20" Name="FlyoutButton" Content="Click for privacy policy">
+			<Button.Flyout>
+				<Flyout Placement="Bottom" ShowMode="TransientWithDismissOnPointerMoveAway">
+					<TextBlock Text="The application will not collect any personal data"/>
+				</Flyout>
+			</Button.Flyout>
+		</Button>
+
+		<SplitButton Margin="20" Content="Export as..." >
+			<SplitButton.Flyout>
+				<MenuFlyout Placement="Bottom">
+					<MenuItem Header="PDF"
+							  InputGesture="Ctrl+A" />
+					<MenuItem Header="Png" />
+				</MenuFlyout>
+			</SplitButton.Flyout>
+		</SplitButton>
+		
+	</StackPanel>
+</Window>

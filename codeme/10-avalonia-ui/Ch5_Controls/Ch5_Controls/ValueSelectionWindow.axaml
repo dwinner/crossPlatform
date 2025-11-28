@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch5_Controls.ValueSelectionWindow"
+        Title="ValueSelectionWindow">
+	<StackPanel>
+		<CheckBox Name="CheckBox1" Content="Click this CheckBox if you agree"
+				  IsChecked="true" Margin="10" />
+
+		<StackPanel Margin="10">
+			<TextBlock Text="Select your age:" />
+			<Slider  x:Name="Slider1" Maximum="85" Minimum="13" Value="30"
+					 PropertyChanged="Slider1_PropertyChanged" TickFrequency="1"
+					TickPlacement="TopLeft" />
+
+			<ComboBox Name="ComboBox1" SelectionChanged="ComboBox1_SelectionChanged" SelectedIndex="0" IsDropDownOpen="True">
+				<ComboBoxItem>Item 1</ComboBoxItem>
+				<ComboBoxItem>Item 2</ComboBoxItem>
+				<ComboBoxItem>Item 3</ComboBoxItem>
+				<ComboBoxItem>Item 4</ComboBoxItem>
+			</ComboBox>
+		</StackPanel>
+	</StackPanel>
+</Window>

@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		xmlns:local="using:Chapter7_CustomControls"
+        x:Class="Chapter7_CustomControls.MainWindow"
+        Title="Chapter7_CustomControls">
+	<Window.Styles>
+		<StyleInclude Source="avares://Chapter7_CustomControls/CustomButtonTemplatedControl.axaml"/>
+	</Window.Styles>
+	<StackPanel Spacing="20">
+		<local:FileBrowserUserControl Name="FileBrowserControl1"/>
+		
+		<TextBlock Text="{Binding ElementName=FileBrowserControl1, Path=FileName}"/>
+	
+	
+		<Button Classes="custombutton" Width="150"
+				Height="150" Content="A custom button"/>
+	</StackPanel>
+</Window>

@@ -1,0 +1,48 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Chapter7_CustomControls">
+	<Design.PreviewWith>
+		<Button Classes="custombutton" />
+	</Design.PreviewWith>
+
+	<Style Selector="Button.custombutton">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid>
+					<Ellipse Fill="Red" Width="{TemplateBinding Width}"
+							 Height="{TemplateBinding Height}"/>
+					<ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"
+									  HorizontalAlignment="Center"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+	<Style Selector="Button.custombutton:pointerover">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid>
+					<Ellipse Fill="LightGreen" Width="{TemplateBinding Width}"
+							 Height="{TemplateBinding Height}"/>
+					<ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"
+									  HorizontalAlignment="Center"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+	<Style Selector="Button.custombutton:pressed">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid>
+					<Ellipse Fill="Yellow" Width="{TemplateBinding Width}"
+							 Height="{TemplateBinding Height}"/>
+					<ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"
+									  HorizontalAlignment="Center"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+</Styles>

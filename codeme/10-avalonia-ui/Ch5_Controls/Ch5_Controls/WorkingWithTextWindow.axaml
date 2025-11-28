@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch5_Controls.WorkingWithTextWindow"
+        Title="WorkingWithTextWindow">
+	<StackPanel>
+		<TextBlock Margin="5" Text="Displaying some text" HorizontalAlignment="Center"
+				   VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Blue" />
+
+		<TextBox Margin="5" Name="TextBox1" Watermark="Enter some text..."
+		   Foreground="Green" TextInput="TextBox1_TextInput"/>
+
+		<StackPanel>
+			<TextBlock Margin="5">International phone number:</TextBlock>
+			<MaskedTextBox Margin="5" Mask="(+09) 000 000 0000" />
+			<TextBlock Margin="5">Italian VAT number:</TextBlock>
+			<MaskedTextBox Margin="5" Mask="IT 000 000 000 00" />
+		</StackPanel>
+
+		<StackPanel Margin="5">
+			<TextBlock>Select your favorite food:</TextBlock>
+			<AutoCompleteBox Name="FoodBox" FilterMode="StartsWith" />
+		</StackPanel>
+	</StackPanel>
+</Window>

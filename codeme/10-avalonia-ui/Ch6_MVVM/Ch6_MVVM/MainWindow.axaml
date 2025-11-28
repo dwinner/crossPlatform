@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch6_MVVM.MainWindow"
+        Title="Ch6_MVVM">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal">
+			<Button Name="AddButton" Command="{Binding AddPerson}" Content="Add person"/>
+		</StackPanel>
+		
+		<DataGrid Grid.Row="1" Name="DataGrid1" ClipboardCopyMode="IncludeHeader"
+				  Items="{Binding People}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}"
+					  AlternatingRowBackground="LightGreen"				   CanUserResizeColumns="True" CanUserReorderColumns="True"
+					  GridLinesVisibility="All">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="First Name"
+				 Binding="{Binding FullName}"/>
+				<DataGridTemplateColumn Header="Date of birth">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<CalendarDatePicker
+							 SelectedDate="{Binding DateOfBirth}" />
+						</DataTemplate>
+
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Header="Address"
+				 Binding="{Binding Address}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
+</Window>

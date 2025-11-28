@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch6_Resources_and_DataBinding.CarouselWindow"
+        Title="CarouselWindow">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition  Width="Auto"/>
+			<ColumnDefinition />
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+		<Carousel Name="Carousel1" Items="{Binding}" Grid.Column="1"
+				  HorizontalAlignment="Center"
+				  VerticalAlignment="Center">
+			<Carousel.PageTransition>
+				<CompositePageTransition>
+					<PageSlide Duration="0:00:01.000" Orientation="Horizontal" />
+				</CompositePageTransition>
+			</Carousel.PageTransition>
+			<Carousel.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding FullName}" FontSize="18" FontWeight="Bold" />
+						<TextBlock Text="{Binding DateOfBirth}" Foreground="Gray" />
+						<TextBlock Text="{Binding Address}" FontSize="14" />
+					</StackPanel>
+				</DataTemplate>
+			</Carousel.ItemTemplate>
+		</Carousel>
+		<Button Margin="10" Name="PreviousButton" Click="PreviousButton_Click">&lt;</Button>
+		<Button Margin="10" Name="NextButton" Click="NextButton_Click" Grid.Column="2">&gt;</Button>
+	</Grid>
+</Window>

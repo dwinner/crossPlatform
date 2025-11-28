@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch5_Controls.WorkingWithDateAndTimeWindow"
+        Title="WorkingWithDateAndTimeWindow">
+	<StackPanel>
+		<DatePicker Name="DatePicker1" MaxYear="12/31/2023" MinYear="01/01/1990" SelectedDateChanged="DatePicker1_SelectedDateChanged"/>
+        <Calendar Name="Calendar1" DisplayDate="07/03/2023" DisplayDateStart="01/01/2023" DisplayDateEnd="12/31/2023" DisplayMode="Month" 
+				  FirstDayOfWeek="Monday" DisplayDateChanged="Calendar1_DisplayDateChanged"/>
+
+		<CalendarDatePicker SelectedDate="07/03/2023" Margin="10" />
+		<TimePicker Name="TimePicker1" MinuteIncrement="15" SelectedTime="02:30:00"
+					SelectedTimeChanged="TimePicker1_SelectedTimeChanged"/>
+	</StackPanel>
+</Window>

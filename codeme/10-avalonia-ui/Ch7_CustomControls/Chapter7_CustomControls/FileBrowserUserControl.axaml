@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Chapter7_CustomControls.FileBrowserUserControl">
+	<StackPanel Orientation="Horizontal">
+		<TextBlock Margin="3" Text="File name:" Height="30"/>
+		<TextBox Text="{Binding RelativeSource={RelativeSource FindAncestor, 
+                 AncestorType={x:Type UserControl}}, Path=FileName}"
+                 Width="400" Name="FileNameTextBox" Margin="3" Height="30"/>
+		<Button Margin="3" Name="BrowseButton" Click="BrowseButton_Click" Content="Browse" Height="30"/>
+	</StackPanel>
+</UserControl>

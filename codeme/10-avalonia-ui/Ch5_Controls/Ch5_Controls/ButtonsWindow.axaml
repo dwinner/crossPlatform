@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:controls="using:Avalonia.Controls"
+		x:Class="Ch5_Controls.ButtonsWindow"
+        Title="ButtonsWindow">
+	<StackPanel>
+		<Button Margin="10,10,0,0" Name="Button1" Content="Click here"
+				Foreground="Orange" BorderBrush="Red"
+				BorderThickness="2" CornerRadius="10"
+				Click="Button1_Click"/>
+
+		<RepeatButton Margin="10,10,0,0" Name="Button2" Content="Click here"
+		Foreground="Orange" BorderBrush="Red"
+		BorderThickness="2" CornerRadius="10"
+		Click="Button1_Click"/>
+		
+		<ToggleButton Margin="10,10,0,0" Click="Button3_Click" Name="Button3" Content="Click to change state" IsChecked="true"/>
+
+		<RadioButton Margin="10,10,0,0" IsChecked="true" Name="Option1"
+             GroupName="First Group"
+             Content="First choice"/>
+		<RadioButton Margin="10,0,0,0" IsChecked="false" Name="Option2"
+					 GroupName="First Group"
+					 Content="Second choice"/>
+		<RadioButton Margin="10,0,0,0" IsChecked="false" Name="Option3"
+					 GroupName="First Group"
+					 Content="Third choice"/>
+
+		<ButtonSpinner Margin="10" Name="ButtonSpinner1" AllowSpin="True" ButtonSpinnerLocation="Right"
+					   Content="1" Spin="ButtonSpinner1_Spin" />
+	</StackPanel>
+</Window>

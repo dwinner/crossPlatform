@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch6_Resources_and_DataBinding.DataGridWindow"
+        Title="DataGridWindow">
+	<Grid>
+		<!--<DataGrid Name="DataGrid1" ClipboardCopyMode="IncludeHeader"			   
+				  Items="{Binding}" AutoGenerateColumns="True" 
+				  GridLinesVisibility="All"/>-->
+
+		<DataGrid Name="DataGrid1" ClipboardCopyMode="IncludeHeader"
+		          Items="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="LightGreen"
+				   CanUserResizeColumns="True" CanUserReorderColumns="True"			   
+		  GridLinesVisibility="All" CellEditEnded="DataGrid1_CellEditEnded"
+				   
+				  CellEditEnding="DataGrid1_CellEditEnding">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="First Name" Binding="{Binding FullName}"/>
+				<DataGridTemplateColumn Header="Date of birth">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<CalendarDatePicker SelectedDate="{Binding DateOfBirth}" />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+    	</DataGrid>
+	</Grid>
+</Window>

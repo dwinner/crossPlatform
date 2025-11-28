@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Ch9_Graphics_Animations_Brushes.MainWindow"
+        Title="Ch9_Graphics_Animations_Brushes">
+	<Grid>
+		<Grid.Background>
+			<SolidColorBrush Color="LightGreen"/>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<Grid>
+			<Grid.Background>
+				<LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+					<GradientStop Offset="0" Color="Orange"/>
+					<GradientStop Offset="0.5" Color="Red"/>
+					<GradientStop Offset="0.9" Color="Yellow"/>
+				</LinearGradientBrush>
+			</Grid.Background>
+		</Grid>
+
+		<Grid Grid.Column="1">
+			<Grid.Background>
+				<RadialGradientBrush>
+					<GradientStop Offset="0" Color="Blue"/>
+					<GradientStop Offset="0.5" Color="Green"/>
+					<GradientStop Offset="0.9" Color="Violet"/>
+				</RadialGradientBrush>
+			</Grid.Background>
+		</Grid>
+
+		<Grid Grid.Row="1">
+			<Grid.Background>
+				<ImageBrush Opacity="0.5" Source="/tulips.jpg" />
+			</Grid.Background>
+		</Grid>
+
+		<StackPanel Grid.Row="1" Grid.Column="1">
+			<StackPanel Name="Stack1">
+				<TextBlock Text="Example of Visual Brush" Foreground="Red" />
+				<TextBox Text="Enter some text here" Foreground="Green" />
+			</StackPanel>
+
+			<StackPanel VerticalAlignment="Center">
+				<Button BorderBrush="Black" Margin="10,10,10,10" Height="80" Width="300">
+					<Button.Background>
+						<VisualBrush Visual="{Binding ElementName=Stack1}"/>
+					</Button.Background>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Window>

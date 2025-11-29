@@ -4,7 +4,7 @@ namespace OutlookClone;
 
 public partial class MainPage
 {
-   public ObservableCollection<Simpson> Simpsons = new();
+   public ObservableCollection<Simpson> Simpsons = [];
 
    public MainPage()
    {
@@ -30,7 +30,7 @@ public partial class MainPage
    {
       const int capacity = 20;
 #if DEBUG
-      await Task.Delay(TimeSpan.FromMinutes(1));
+      await Task.Delay(TimeSpan.FromSeconds(1));
 #endif
 
       var simpsons = new List<Simpson>(capacity);

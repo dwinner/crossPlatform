@@ -78,8 +78,8 @@ end_of_line = unset
 # See https://github.com/dotnet/roslyn/issues/20356#issuecomment-310143926
 trim_trailing_whitespace = false
 
-tab_width = 4
-indent_size = 4
+tab_width = 3
+indent_size = 3
 
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true

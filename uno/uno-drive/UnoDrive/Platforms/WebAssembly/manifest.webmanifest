@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "UnoDrive",
+  "display": "standalone",
+  "name": "UnoDrive",
+  "short_name": "UnoDrive",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

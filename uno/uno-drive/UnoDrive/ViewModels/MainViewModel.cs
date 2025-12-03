@@ -1,4 +1,4 @@
-namespace UnoDrive.Presentation;
+namespace UnoDrive.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {

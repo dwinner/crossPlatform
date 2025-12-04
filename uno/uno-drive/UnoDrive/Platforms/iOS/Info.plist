@@ -33,7 +33,11 @@
 		<string>Assets.xcassets/icon.appiconset</string>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
-
+      <key>UIAppFonts</key>
+      <array>
+         <string>Fonts/uno-fluentui-assets.ttf</string>
+         <string>Fonts/MaterialIcons-Regular.ttf</string>
+      </array>
 		<!--
 		Adjust this to your application's encryption usage.
 		<key>ITSAppUsesNonExemptEncryption</key>

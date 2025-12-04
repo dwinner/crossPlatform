@@ -16,6 +16,7 @@ public partial class App : Application
    }
 
    protected Window? MainWindow { get; private set; }
+
    protected IHost? Host { get; private set; }
 
    protected async override void OnLaunched(LaunchActivatedEventArgs args)

@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.IO;
 using LiteDB;
 using Microsoft.Identity.Client;
 using Windows.Storage;
+using ITokenCache = Microsoft.Identity.Client.ITokenCache;
 
 namespace UnoDrive.Authentication
 {

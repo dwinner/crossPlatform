@@ -1,4 +1,4 @@
-﻿#if __ANDROID__ || __IOS__ || __MACOS__
+#if __ANDROID__ || __IOS__ || __MACOS__
 using System;
 using System.Text.Json.Serialization;
 using Microsoft.Graph;

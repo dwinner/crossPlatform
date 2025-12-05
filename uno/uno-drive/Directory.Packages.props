@@ -8,7 +8,9 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <PackageVersion Include="LiteDB" Version="5.0.21" />
     <PackageVersion Include="Microsoft.Identity.Client" Version="4.79.2" />
+    <PackageVersion Include="Uno.UI.MSAL" Version="5.6.99" />
     <PackageVersion Include="Uno.UniversalImageLoader" Version="1.9.37" />
   </ItemGroup>
 </Project>

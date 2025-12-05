@@ -1,10 +1,12 @@
 <linker>
-  <assembly fullname="UnoDrive" />
-
-  <!--
-  Uncomment this section when using JSON.NET
-  <assembly fullname="System.Core">
-    <type fullname="System.Linq.Expressions*" />
-  </assembly>
-   -->
+    <assembly fullname="UnoDrive" />
+    <assembly fullname="Uno.UI" />
+    <assembly fullname="Microsoft.Extensions.Options" />
+    <assembly fullname="Microsoft.Graph" />
+    <assembly fullname="Microsoft.Graph.Core" />
+    
+    <!-- This is required by JSon.NET and any expression.Compile caller -->
+    <assembly fullname="System.Core">
+        <type fullname="System.Linq.Expressions*" />
+    </assembly>
 </linker>

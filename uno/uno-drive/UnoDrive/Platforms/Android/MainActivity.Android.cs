@@ -1,24 +1,27 @@
 using Android.App;
-using Android.Content.PM;
+using Android.Content;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
 using Microsoft.Identity.Client;
 
 namespace UnoDrive.Droid;
 
 [Activity(
-    MainLauncher = true,
-    ConfigurationChanges = global::Uno.UI.ActivityHelper.AllConfigChanges,
-    WindowSoftInputMode = SoftInput.AdjustNothing | SoftInput.StateHidden
+   MainLauncher = true,
+   ConfigurationChanges = ActivityHelper.AllConfigChanges,
+   WindowSoftInputMode = SoftInput.AdjustPan | SoftInput.StateHidden
 )]
-public class MainActivity : Microsoft.UI.Xaml.ApplicationActivity
+public class MainActivity : ApplicationActivity
 {
-    protected override void OnCreate(Bundle? savedInstanceState)
-    {
-        global::AndroidX.Core.SplashScreen.SplashScreen.InstallSplashScreen(this);
+   protected override void OnCreate(Bundle? savedInstanceState)
+   {
+      AndroidX.Core.SplashScreen.SplashScreen.InstallSplashScreen(this);
+      base.OnCreate(savedInstanceState);
+   }
 
-        base.OnCreate(savedInstanceState);
-    }
-
+   protected override void OnActivityResult(int requestCode, Result resultCode, Intent? data)
+   {
+      base.OnActivityResult(requestCode, resultCode, data);
+      AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+   }
 }

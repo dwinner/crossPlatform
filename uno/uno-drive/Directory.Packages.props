@@ -7,4 +7,8 @@
   -->
   <ItemGroup>
   </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Identity.Client" Version="4.79.2" />
+    <PackageVersion Include="Uno.UniversalImageLoader" Version="1.9.37" />
+  </ItemGroup>
 </Project>

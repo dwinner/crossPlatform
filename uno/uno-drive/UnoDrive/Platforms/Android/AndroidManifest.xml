@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-  <application android:allowBackup="true" android:supportsRtl="true"></application>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="UnoDrive">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permissions.INTERNET" />
+    <application android:allowBackup="true" android:supportsRtl="true"
+                 android:label="UnoDrive">
+        <activity android:name="microsoft.identity.client.BrowserTabActivity"
+                  android:configChanges="orientation|screenSize"
+                  android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="unodrive" android:host="auth" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

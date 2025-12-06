@@ -1,11 +1,8 @@
-﻿using System;
-using Windows.Networking.Connectivity;
+namespace UnoDrive.Services;
 
-namespace UnoDrive.Services
+public interface INetworkConnectivityService
 {
-	public interface INetworkConnectivityService
-    {
-		NetworkConnectivityLevel Connectivity { get; }
-		event EventHandler NetworkStatusChanged;
-	}
+   NetworkConnectivityLevel Connectivity { get; }
+
+   event EventHandler NetworkStatusChanged;
 }

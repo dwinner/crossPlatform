@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\crossPlatform\\uno\\bookrail_webapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC54AF32-00DC-4288-B3C1-54BFDF3D57B2}|UnoBookRail.WebApi\\UnoBookRail.WebApi.csproj|f:\\crossplatform\\uno\\bookrail_webapi\\unobookrail.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC54AF32-00DC-4288-B3C1-54BFDF3D57B2}|UnoBookRail.WebApi\\UnoBookRail.WebApi.csproj|solutionrelative:unobookrail.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ebac7c74-3b95-5b1e-b483-338a08cbadf2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\crossPlatform\\uno\\bookrail_webapi\\UnoBookRail.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "UnoBookRail.WebApi\\Program.cs",
+              "ToolTip": "F:\\crossPlatform\\uno\\bookrail_webapi\\UnoBookRail.WebApi\\Program.cs",
+              "RelativeToolTip": "UnoBookRail.WebApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T14:44:33.568Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

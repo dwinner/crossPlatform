@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\crossPlatform\\uno\\bookrail_common\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5350503D-6F01-48E6-A3DF-A7FBECBD24D8}|UnoBookRail.Common.Tests\\UnoBookRail.Common.Tests.csproj|f:\\crossplatform\\uno\\bookrail_common\\unobookrail.common.tests\\getcurrenttrainsinnetworktests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5350503D-6F01-48E6-A3DF-A7FBECBD24D8}|UnoBookRail.Common.Tests\\UnoBookRail.Common.Tests.csproj|solutionrelative:unobookrail.common.tests\\getcurrenttrainsinnetworktests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetCurrentTrainsInNetworkTests.cs",
+              "DocumentMoniker": "F:\\crossPlatform\\uno\\bookrail_common\\UnoBookRail.Common.Tests\\GetCurrentTrainsInNetworkTests.cs",
+              "RelativeDocumentMoniker": "UnoBookRail.Common.Tests\\GetCurrentTrainsInNetworkTests.cs",
+              "ToolTip": "F:\\crossPlatform\\uno\\bookrail_common\\UnoBookRail.Common.Tests\\GetCurrentTrainsInNetworkTests.cs",
+              "RelativeToolTip": "UnoBookRail.Common.Tests\\GetCurrentTrainsInNetworkTests.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAYwHgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T14:17:04.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ebac7c74-3b95-5b1e-b483-338a08cbadf2}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

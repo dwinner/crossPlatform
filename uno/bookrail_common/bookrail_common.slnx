@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="UnoBookRail.Common.Tests/UnoBookRail.Common.Tests.csproj" />
+  <Project Path="UnoBookRail.Common/UnoBookRail.Common.csproj" />
+</Solution>

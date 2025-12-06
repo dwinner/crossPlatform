@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../bookrail_common/UnoBookRail.Common/UnoBookRail.Common.csproj" />
+  <Project Path="UnoBookRail.WebApi/UnoBookRail.WebApi.csproj" Id="bc54af32-00dc-4288-b3c1-54bfdf3d57b2" />
+</Solution>

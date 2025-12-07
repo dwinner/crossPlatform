@@ -1,11 +1,11 @@
-namespace Dashboard.Presentation;
+namespace Dashboard.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
     private INavigator _navigator;
 
     [ObservableProperty]
-    private string? name;
+    private string? _name;
 
     public MainViewModel(
         IStringLocalizer localizer,

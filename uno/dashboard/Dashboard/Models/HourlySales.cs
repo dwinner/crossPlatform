@@ -1,5 +1,5 @@
-﻿namespace Dashboard.Views
-{
+namespace Dashboard.Models;
+
 public class HourlySales
 {
     public HourlySales(string hour, double totalSales)
@@ -11,5 +11,4 @@ public class HourlySales
     public string Hour { get; set; }
 
     public double TotalSales { get; set; }
-}
 }

@@ -6,6 +6,7 @@
     <File Path="Directory.Packages.props" />
     <File Path="global.json" />
   </Folder>
+  <Project Path="../bookrail_common/UnoBookRail.Common/UnoBookRail.Common.csproj" />
   <Project Path="Dashboard/Dashboard.csproj">
     <Deploy />
   </Project>

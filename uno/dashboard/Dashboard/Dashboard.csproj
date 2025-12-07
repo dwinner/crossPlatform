@@ -47,5 +47,11 @@
       SkiaRenderer;
     </UnoFeatures>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="H.Syncfusion.SfChart.Uno" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\bookrail_common\UnoBookRail.Common\UnoBookRail.Common.csproj" />
+  </ItemGroup>
 
 </Project>

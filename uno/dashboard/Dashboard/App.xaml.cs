@@ -1,22 +1,24 @@
-using Uno.Resizetizer;
+using Dashboard.ViewModels;
+using MainViewModel = Dashboard.ViewModels.MainViewModel;
 
 namespace Dashboard;
 
-public partial class App : Application
+public partial class App
 {
     /// <summary>
-    /// Initializes the singleton application object. This is the first line of authored code
-    /// executed, and as such is the logical equivalent of main() or WinMain().
+    ///     Initializes the singleton application object. This is the first line of authored code
+    ///     executed, and as such is the logical equivalent of main() or WinMain().
     /// </summary>
     public App()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 
     protected Window? MainWindow { get; private set; }
+
     protected IHost? Host { get; private set; }
 
-    protected async override void OnLaunched(LaunchActivatedEventArgs args)
+    protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
         var builder = this.CreateBuilder(args)
             // Add navigation support for toolkit controls such as TabBar and NavigationView
@@ -26,14 +28,12 @@ public partial class App : Application
                 // Switch to Development environment when running in DEBUG
                 .UseEnvironment(Environments.Development)
 #endif
-                .UseLogging(configure: (context, logBuilder) =>
+                .UseLogging((context, logBuilder) =>
                 {
                     // Configure log levels for different categories of logging
                     logBuilder
                         .SetMinimumLevel(
-                            context.HostingEnvironment.IsDevelopment() ?
-                                LogLevel.Information :
-                                LogLevel.Warning)
+                            context.HostingEnvironment.IsDevelopment() ? LogLevel.Information : LogLevel.Warning)
 
                         // Default filters for core Uno Platform namespaces
                         .CoreLogLevel(LogLevel.Warning);
@@ -54,8 +54,7 @@ public partial class App : Application
                     //logBuilder.HotReloadCoreLogLevel(LogLevel.Information);
                     //// Debug JS interop
                     //logBuilder.WebAssemblyLogLevel(LogLevel.Debug);
-
-                }, enableUnoLogging: true)
+                }, true)
                 .UseConfiguration(configure: configBuilder =>
                     configBuilder
                         .EmbeddedSource<App>()
@@ -66,10 +65,9 @@ public partial class App : Application
                 .UseHttp((context, services) =>
                 {
 #if DEBUG
-                // DelegatingHandler will be automatically injected
-                services.AddTransient<DelegatingHandler, DebugHttpHandler>();
+                    // DelegatingHandler will be automatically injected
+                    services.AddTransient<DelegatingHandler, DebugHttpHandler>();
 #endif
-
                 })
                 .ConfigureServices((context, services) =>
                 {
@@ -97,11 +95,11 @@ public partial class App : Application
         );
 
         routes.Register(
-            new RouteMap("", View: views.FindByViewModel<ShellViewModel>(),
+            new RouteMap("", views.FindByViewModel<ShellViewModel>(),
                 Nested:
                 [
-                    new ("Main", View: views.FindByViewModel<MainViewModel>(), IsDefault:true),
-                    new ("Second", View: views.FindByViewModel<SecondViewModel>()),
+                    new RouteMap("Main", views.FindByViewModel<MainViewModel>(), true),
+                    new RouteMap("Second", views.FindByViewModel<SecondViewModel>())
                 ]
             )
         );

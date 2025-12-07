@@ -7,4 +7,7 @@
   -->
   <ItemGroup>
   </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="H.Syncfusion.SfChart.Uno" Version="0.3.1" />
+  </ItemGroup>
 </Project>

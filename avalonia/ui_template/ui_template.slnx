@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="Panels.Android/Panels.Android.csproj" />
+  <Project Path="Panels.Browser/Panels.Browser.csproj" />
+  <Project Path="Panels.Desktop/Panels.Desktop.csproj" />
+  <Project Path="Panels.iOS/Panels.iOS.csproj" />
+  <Project Path="Panels/Panels.csproj" />
+</Solution>

@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\crossPlatform\\avalonia\\panels\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3BB1709D-839C-4C4B-8C5B-FAD112E2A748}|Panels\\Panels.csproj|f:\\crossplatform\\avalonia\\panels\\panels\\app.axaml||{4DC5468E-D6D5-4393-818C-BC82F347E8FD}",
+      "RelativeMoniker": "D:0:0:{3BB1709D-839C-4C4B-8C5B-FAD112E2A748}|Panels\\Panels.csproj|solutionrelative:panels\\app.axaml||{4DC5468E-D6D5-4393-818C-BC82F347E8FD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BB1709D-839C-4C4B-8C5B-FAD112E2A748}|Panels\\Panels.csproj|f:\\crossplatform\\avalonia\\panels\\panels\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BB1709D-839C-4C4B-8C5B-FAD112E2A748}|Panels\\Panels.csproj|solutionrelative:panels\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{79664857-03bf-4bca-aa54-ec998b3328f8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ebac7c74-3b95-5b1e-b483-338a08cbadf2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.axaml.cs",
+              "DocumentMoniker": "F:\\crossPlatform\\avalonia\\panels\\Panels\\App.axaml.cs",
+              "RelativeDocumentMoniker": "Panels\\App.axaml.cs",
+              "ToolTip": "F:\\crossPlatform\\avalonia\\panels\\Panels\\App.axaml.cs",
+              "RelativeToolTip": "Panels\\App.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T19:10:53.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.axaml",
+              "DocumentMoniker": "F:\\crossPlatform\\avalonia\\panels\\Panels\\App.axaml",
+              "RelativeDocumentMoniker": "Panels\\App.axaml",
+              "ToolTip": "F:\\crossPlatform\\avalonia\\panels\\Panels\\App.axaml",
+              "RelativeToolTip": "Panels\\App.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-07T19:10:46.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

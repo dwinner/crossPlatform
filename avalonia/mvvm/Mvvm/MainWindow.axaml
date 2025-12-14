@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Mvvm.ViewModel"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Mvvm.MainWindow"
+        Title="Mvvm"
+        x:DataType="vm:PersonViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="addButton"
+                    Command="{Binding AddPerson, Mode=OneWay}"
+                    Content="Add person" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="1"
+                  Name="DataGrid1"
+                  ClipboardCopyMode="IncludeHeader"
+                  ItemsSource="{Binding People, Mode=OneWay}"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedPerson, Mode=TwoWay}"
+                  CanUserResizeColumns="True"
+                  CanUserReorderColumns="True"
+                  GridLinesVisibility="All">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name"
+                                    Binding="{Binding FullName, Mode=OneWay}" />
+                <DataGridTemplateColumn Header="Date of birth">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CalendarDatePicker SelectedDate="{Binding DateOfBirth, Mode=OneWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Address"
+                                    Binding="{Binding Address, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

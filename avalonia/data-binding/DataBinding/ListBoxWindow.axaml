@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBinding"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DataBinding.ListBoxWindow"
+        Title="ListBoxWindow">
+    <Window.Resources>
+        <DataTemplate x:Key="personDataTemplate"
+                      x:DataType="local:Person">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Full name: " />
+                    <TextBlock Text="{Binding FullName, Mode=OneWay}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="Date of birth: " />
+                    <CalendarDatePicker SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ComboBox x:DataType="local:ListBoxWindow"
+                  Items="{Binding People, Mode=TwoWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="local:Person">
+                    <StackPanel>
+                        <TextBlock Text="{Binding FullName, Mode=OneWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Window>

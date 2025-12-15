@@ -1,7 +1,7 @@
-﻿using Avalonia;
-using System;
+﻿using System;
+using Avalonia;
 
-namespace Chapter7_CustomControls
+namespace CustomControls
 {
     internal class Program
     {
@@ -16,6 +16,7 @@ namespace Chapter7_CustomControls
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
+                .WithInterFont()
                 .LogToTrace();
     }
 }

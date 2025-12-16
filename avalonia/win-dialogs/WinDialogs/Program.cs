@@ -1,7 +1,7 @@
-﻿using Avalonia;
-using System;
+﻿using System;
+using Avalonia;
 
-namespace Ch8_Windows_Dialogs
+namespace WinDialogs
 {
     internal class Program
     {
@@ -16,6 +16,7 @@ namespace Ch8_Windows_Dialogs
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
+                .WithInterFont()
                 .LogToTrace();
     }
 }

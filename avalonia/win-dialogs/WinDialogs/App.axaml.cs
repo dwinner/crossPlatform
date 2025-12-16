@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace Ch8_Windows_Dialogs
+namespace WinDialogs
 {
     public partial class App : Application
     {

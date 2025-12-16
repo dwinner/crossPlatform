@@ -3,11 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Ch8_Windows_Dialogs.MainWindow"
-        Title="Ch8_Windows_Dialogs">
-	<StackPanel>
-		<Button Name="OpenWindowButton"
-				Content="Open new window"
-				Margin="10" Click="OpenWindowButton_Click"/>
-	</StackPanel>
+        x:Class="WinDialogs.MainWindow"
+        Title="WinDialogs">
+    <StackPanel>
+        <Button Name="openWindowButton"
+                Content="Open new window"
+                Margin="10" Click="OpenWindowButton_Click"/>
+    </StackPanel>
 </Window>

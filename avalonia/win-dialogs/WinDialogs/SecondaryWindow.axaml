@@ -3,18 +3,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Ch8_Windows_Dialogs.SecondaryWindow"
+        x:Class="WinDialogs.SecondaryWindow"
         Title="SecondaryWindow"
-		WindowStartupLocation="CenterScreen">
-	<TabControl>
-		<TabItem Header="First tab" Tapped="TabItem_Tapped">
-			<TextBlock Text="Your content here.."/>
-		</TabItem>
-		<TabItem Header="Second tab">
-			
-		</TabItem>
-		<TabItem Header="Third tab">
-
-		</TabItem>
-	</TabControl>
+        WindowStartupLocation="CenterScreen">
+    <TabControl>
+        <TabItem Header="First tab">
+            <TextBlock Text="Your content here.." />
+        </TabItem>
+        <TabItem Header="Second tab" />
+        <TabItem Header="Third tab" />
+    </TabControl>
 </Window>
